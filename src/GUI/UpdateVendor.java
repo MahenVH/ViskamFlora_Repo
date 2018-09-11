@@ -3,17 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+
 package GUI;
+ 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
  * @author Purnima
  */
 public class UpdateVendor extends javax.swing.JFrame {
+    
+    public class 
 
     /**
      * Creates new form UpdateVendor
      */
+    
+    
     public UpdateVendor() {
         initComponents();
     }

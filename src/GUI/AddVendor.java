@@ -10,6 +10,8 @@ package GUI;
  * @author Purnima
  */
 public class AddVendor extends javax.swing.JFrame {
+    
+   
 
     /**
      * Creates new form AddVendor
