@@ -5,19 +5,38 @@
  */
 package GUI;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  *
  * @author Purnima
  */
 public class AddVendor extends javax.swing.JFrame {
     
-   
+    
+  private static Pattern emailNamePtrn = Pattern.compile(
+    "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+    
+    
+    public static boolean validateEmailAddress(String email){
+         
+        Matcher mtch = emailNamePtrn.matcher(email);
+        if(mtch.matches()){
+            return true;
+        }
+        System.out.println("Not valid email");
+        return false;
+        
+    }
 
     /**
      * Creates new form AddVendor
      */
     public AddVendor() {
         initComponents();
+        
+        
     }
 
     /**
@@ -67,6 +86,11 @@ public class AddVendor extends javax.swing.JFrame {
         });
 
         btnvadd.setText("Add");
+        btnvadd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnvaddActionPerformed(evt);
+            }
+        });
 
         btnvcancel.setText("Cancel");
 
@@ -146,6 +170,11 @@ public class AddVendor extends javax.swing.JFrame {
     private void txtvidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtvidActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtvidActionPerformed
+
+    private void btnvaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvaddActionPerformed
+        // TODO add your handling code here:
+        validateEmailAddress(txtvemail);
+    }//GEN-LAST:event_btnvaddActionPerformed
 
     /**
      * @param args the command line arguments

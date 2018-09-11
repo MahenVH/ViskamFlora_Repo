@@ -23,6 +23,8 @@ public class Validation {
         if(mtch.matches()){
             return true;
         }
+        System.out.println("Not valid email");
         return false;
+        
     }
 }

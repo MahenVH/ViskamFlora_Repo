@@ -40,21 +40,20 @@ public class CustomerGUI_Main extends javax.swing.JFrame {
 
         jButton1.setText("jButton1");
         getContentPane().add(jButton1);
-        jButton1.setBounds(520, 350, 79, 25);
+        jButton1.setBounds(520, 350, 77, 32);
 
         jButton2.setText("jButton2");
         getContentPane().add(jButton2);
-        jButton2.setBounds(520, 420, 79, 25);
+        jButton2.setBounds(520, 420, 77, 32);
 
         jButton3.setText("jButton3");
         getContentPane().add(jButton3);
-        jButton3.setBounds(520, 500, 79, 25);
+        jButton3.setBounds(520, 500, 77, 32);
 
         jButton4.setText("jButton4");
         getContentPane().add(jButton4);
-        jButton4.setBounds(520, 570, 79, 25);
+        jButton4.setBounds(520, 570, 77, 32);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Project_Images\\light .jpeg")); // NOI18N
         jLabel1.setPreferredSize(new java.awt.Dimension(500, 400));
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 500, 400);
