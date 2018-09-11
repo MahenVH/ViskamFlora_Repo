@@ -17,10 +17,12 @@ public class AddVendor extends javax.swing.JFrame {
     
   private static Pattern emailNamePtrn = Pattern.compile(
     "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+  
     
     
-    public static boolean validateEmailAddress(String email){
-         
+    public boolean validateEmailAddress(){
+        
+         String email=txtvemail.getText();
         Matcher mtch = emailNamePtrn.matcher(email);
         if(mtch.matches()){
             return true;
@@ -173,7 +175,8 @@ public class AddVendor extends javax.swing.JFrame {
 
     private void btnvaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvaddActionPerformed
         // TODO add your handling code here:
-        validateEmailAddress(txtvemail);
+        
+        validateEmailAddress();
     }//GEN-LAST:event_btnvaddActionPerformed
 
     /**

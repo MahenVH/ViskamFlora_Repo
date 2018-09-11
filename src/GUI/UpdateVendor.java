@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
  */
 public class UpdateVendor extends javax.swing.JFrame {
     
-    public class 
+     
 
     /**
      * Creates new form UpdateVendor
