@@ -139,17 +139,31 @@ public class Add_Customer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-                    /* Validating email */
+        /* Validating email */
         String email=txtEmail.getText();
         String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-     
-    if (!email.matches(EMAIL_PATTERN))
+        
+        /*Validating First Name */
+        String Fname=txtFname.getText();
+        int Fname_Pattern = Fname.length();
+        
+        /*Validating Last Name*/
+        String Lname=txtLname.getText();
+        int Lname_Pattern = Lname.length();
+        
+        /*Validating Telephone Number*/
+        /*{3} and {7} are lengths */
+        String Telephone = txtTelNo.getText();
+        String Telephone_Pattern= "\\d{3}-\\d{7}";
+        
+     /*Calling it to the submit button*/
+    if ((!email.matches(EMAIL_PATTERN)) ||(!Telephone.matches(Telephone_Pattern))|| (Fname_Pattern <1) || (Lname_Pattern <1))
     {
-        JOptionPane.showMessageDialog(this, "Incorrect email");
+        JOptionPane.showMessageDialog(this, "Incorrect Credentials");
     }
     else
     {
-    JOptionPane.showMessageDialog(this, "Correct Email");
+    JOptionPane.showMessageDialog(this, "Successfully Entered");
     }
         
     }//GEN-LAST:event_jButton1ActionPerformed
