@@ -5,6 +5,10 @@
  */
 package GUI;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Purnima
@@ -14,6 +18,54 @@ public class AddEmployee extends javax.swing.JFrame {
     /**
      * Creates new form AddEmployee
      */
+    private static Pattern PhoneNumPtrn = Pattern.compile("\\d{3}-\\d{7}");
+    
+    
+    public static boolean validatePhoneNumber(String phonenum){
+        
+         
+        Matcher mtch1 = PhoneNumPtrn.matcher(phonenum);
+        if(mtch1.matches()){
+            return true;
+        }
+        return false;
+        
+    }
+    
+    
+    private static Pattern DobPtrn = Pattern.compile( "^(0[1-9]|1[012])[-/.](0[1-9]|[12][0-9]|3[01])[-/.](19|20)\\d\\d$");
+    
+    
+    public static boolean validateDob(String dob){
+        
+         
+        Matcher mtch2 = DobPtrn.matcher(dob);
+        if(mtch2.matches()){
+            return true;
+        }
+        return false;
+        
+    }
+    
+    
+    
+    
+    public boolean Validation()
+    {
+        String dob=txtdob.getText();
+        String phonenum= txtephone.getText();
+        
+        if(validateDob(dob) && validatePhoneNumber(phonenum))
+        {
+            return true;
+        }
+        
+        else
+        {
+            return false;
+        }
+    }
+    
     public AddEmployee() {
         initComponents();
     }
@@ -209,6 +261,16 @@ public class AddEmployee extends javax.swing.JFrame {
 
     private void btneaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneaddActionPerformed
         // TODO add your handling code here:
+        if (Validation())
+        {
+            JOptionPane.showMessageDialog(this, "Added successfully");
+        }
+        
+        else
+        {
+        
+            JOptionPane.showMessageDialog(this, "Invalid details entered");
+        }
     }//GEN-LAST:event_btneaddActionPerformed
 
     /**
