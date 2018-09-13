@@ -43,6 +43,7 @@ public class AddVendor extends javax.swing.JFrame {
         if(mtch.matches()){
             return true;
         }
+        
         System.out.println("Invalid email");
         return false;
         
@@ -202,6 +203,7 @@ public class AddVendor extends javax.swing.JFrame {
     private void btnvaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvaddActionPerformed
         // TODO add your handling code here:
         Validation();
+        
         
     }//GEN-LAST:event_btnvaddActionPerformed
 
