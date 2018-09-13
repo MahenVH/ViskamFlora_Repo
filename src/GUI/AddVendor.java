@@ -7,6 +7,7 @@ package GUI;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -27,7 +28,7 @@ public class AddVendor extends javax.swing.JFrame {
         if(mtch.matches()){
             return true;
         }
-        System.out.println("Not valid email");
+        System.out.println("Invalid email");
         return false;
         
     }
