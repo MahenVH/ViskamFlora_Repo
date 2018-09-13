@@ -7,6 +7,7 @@ package GUI;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,14 +21,14 @@ public class AddVendor extends javax.swing.JFrame {
   
     
     
-    public boolean validateEmailAddress(){
+    public static boolean validateEmailAddress(String email){
         
-         String email=txtvemail.getText();
+         
         Matcher mtch = emailNamePtrn.matcher(email);
         if(mtch.matches()){
             return true;
         }
-        System.out.println("Not valid email");
+        System.out.println("Invalid email");
         return false;
         
     }
@@ -175,8 +176,8 @@ public class AddVendor extends javax.swing.JFrame {
 
     private void btnvaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvaddActionPerformed
         // TODO add your handling code here:
-        
-        validateEmailAddress();
+        String email=txtvemail.getText();
+        validateEmailAddress(email);
     }//GEN-LAST:event_btnvaddActionPerformed
 
     /**
