@@ -15,6 +15,21 @@ import javax.swing.JOptionPane;
  */
 public class AddVendor extends javax.swing.JFrame {
     
+    private static Pattern PhoneNumPtrn = Pattern.compile("\\d{3}-\\d{7}");
+    
+    
+    public static boolean validatePhoneNumber(String phonenum){
+        
+         
+        Matcher mtch1 = PhoneNumPtrn.matcher(phonenum);
+        if(mtch1.matches()){
+            return true;
+        }
+        System.out.println("Invalid Phone number");
+        return false;
+        
+    }
+    
     
   private static Pattern emailNamePtrn = Pattern.compile(
     "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
@@ -31,6 +46,15 @@ public class AddVendor extends javax.swing.JFrame {
         System.out.println("Invalid email");
         return false;
         
+    }
+    
+    public void Validation()
+    {
+        String email=txtvemail.getText();
+        String phonenum=txtvtp.getText();
+        validateEmailAddress(email);
+        validatePhoneNumber(phonenum);
+    
     }
 
     /**
@@ -69,6 +93,7 @@ public class AddVendor extends javax.swing.JFrame {
         txtitype = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel1.setText("Vendor ID");
 
@@ -176,8 +201,8 @@ public class AddVendor extends javax.swing.JFrame {
 
     private void btnvaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvaddActionPerformed
         // TODO add your handling code here:
-        String email=txtvemail.getText();
-        validateEmailAddress(email);
+        Validation();
+        
     }//GEN-LAST:event_btnvaddActionPerformed
 
     /**
