@@ -70,6 +70,11 @@ public class Remove_Customer extends javax.swing.JFrame {
         });
 
         jButton2.setText("Reset");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         CheckCustomer_Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -184,6 +189,15 @@ public class Remove_Customer extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    txtFname.setText("");
+    txtAddress.setText("");
+    txtEmail.setText("");
+    txtLname.setText("");
+    txtTelephone.setText("");
+    txtDate.setText("");
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

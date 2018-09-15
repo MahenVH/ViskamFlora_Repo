@@ -5,6 +5,9 @@
  */
 package GUI;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +22,11 @@ public class Add_Customer extends javax.swing.JFrame {
     public Add_Customer() {
         initComponents();
     }
+    
+    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
+    String user="mahen123";
+    String pass="1234";
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -74,6 +82,12 @@ public class Add_Customer extends javax.swing.JFrame {
         jLabel5.setText("Last Name");
 
         jLabel6.setText("First Name");
+
+        txtFname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtFnameKeyPressed(evt);
+            }
+        });
 
         jLabel7.setText("eg - 071-1234567");
 
@@ -156,39 +170,41 @@ public class Add_Customer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        /* Validating email */
-        String email=txtEmail.getText();
-        String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-        
-        /*Validating First Name */
-        String Fname=txtFname.getText();
-        int Fname_Pattern = Fname.length();
-        
-        /*Validating Last Name*/
-        String Lname=txtLname.getText();
-        int Lname_Pattern = Lname.length();
-        
-        /*Validating Telephone Number*/
-        /*{3} and {7} are lengths */
-        String Telephone = txtTelNo.getText();
-        String Telephone_Pattern= "\\d{3}-\\d{7}";
-        
-        /*Validating date*/
-        String Date = txtDate.getText();
-        String Date_Pattern = "^(0[1-9]|1[012])[-/.](0[1-9]|[12][0-9]|3[01])[-/.](19|20)\\d\\d$";
-        
-     /*Calling it to the submit button*/
-    if ((!email.matches(EMAIL_PATTERN)) ||(!Telephone.matches(Telephone_Pattern))|| (Fname_Pattern <1) || (Lname_Pattern <1) || (!Date.matches(Date_Pattern)))
+      
+    try
     {
-        JOptionPane.showMessageDialog(this, "Incorrect Credentials");
-    }
-    else
-    {
-    JOptionPane.showMessageDialog(this, "Successfully Entered");
-    }
         
+        Class.forName(driver);
+        Connection con= DriverManager.getConnection(url, user, pass);
+        String sql="insert into Customer_Details"
+                +"(Customer_FName,Customer_LName,Customer_Address,Customer_Contact_Number,Customer_Email,Customer_Date_Added)"
+                +"values(?,?,?,?,?,?)";
+        
+        PreparedStatement pst =con.prepareStatement(sql);
+        pst.setString(1, txtFname.getText());
+        pst.setString(2, txtLname.getText());
+        pst.setString(3, txtAddress.getText());
+        pst.setString(4, txtTelNo.getText());
+        pst.setString(5, txtEmail.getText());
+        pst.setString(6, txtDate.getText());
+        
+        pst.executeUpdate();
+        JOptionPane.showMessageDialog(this, "Insert Succesfull");
+                 
+        
+
+    }
+    catch(Exception e)
+     {
+       JOptionPane.showMessageDialog(this, e.getMessage());
+      }
+    
     }//GEN-LAST:event_jButton1ActionPerformed
 
+ 
+    
+        
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
     txtFname.setText("");
     txtAddress.setText("");
@@ -198,6 +214,10 @@ public class Add_Customer extends javax.swing.JFrame {
     txtDate.setText("");
 
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void txtFnameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFnameKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFnameKeyPressed
 
     /**
      * @param args the command line arguments
