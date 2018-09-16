@@ -27,7 +27,11 @@ public class Add_Customer extends javax.swing.JFrame {
     String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
     String user="mahen123";
     String pass="1234";
+    
 
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -93,7 +97,7 @@ public class Add_Customer extends javax.swing.JFrame {
 
         jLabel8.setText("eg - someone@example.com");
 
-        jLabel9.setText("eg - dd/mm/yyy");
+        jLabel9.setText("eg - dd/mm/yyyy");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -170,10 +174,39 @@ public class Add_Customer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      
-    try
-    {
+     
+            /* Validating email */
+        String email=txtEmail.getText();
+        String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
         
+        /*Validating First Name */
+        String Fname=txtFname.getText();
+        int Fname_Pattern = Fname.length();
+        
+        /*Validating Last Name*/
+        String Lname=txtLname.getText();
+        int Lname_Pattern = Lname.length();
+        
+        /*Validating Telephone Number*/
+        /*{3} and {7} are lengths */
+        String Telephone = txtTelNo.getText();
+        int Telephone_Pattern= Telephone.length();
+        
+        /*Validating date*/
+        String Date = txtDate.getText();
+        String Date_Pattern = "^(0[1-9]|1[012])[-/.](0[1-9]|[12][0-9]|3[01])[-/.](19|20)\\d\\d$";
+   
+        
+    try
+    {   
+       
+        if ((email.matches(EMAIL_PATTERN))
+                /*&&(Telephone.matches(Telephone_Pattern))*/
+                && (Fname_Pattern >1) 
+                && (Lname_Pattern >1) 
+                &&(Telephone_Pattern>=10))/*
+                && (Date.matches(Date_Pattern)))*/
+        {   
         Class.forName(driver);
         Connection con= DriverManager.getConnection(url, user, pass);
         String sql="insert into Customer_Details"
@@ -188,14 +221,20 @@ public class Add_Customer extends javax.swing.JFrame {
         pst.setString(5, txtEmail.getText());
         pst.setString(6, txtDate.getText());
         
+        
         pst.executeUpdate();
         JOptionPane.showMessageDialog(this, "Insert Succesfull");
                  
-        
-
+        }
+        else
+        {
+        JOptionPane.showMessageDialog(this, "Incorrect");
+        }
+      
     }
     catch(Exception e)
      {
+      
        JOptionPane.showMessageDialog(this, e.getMessage());
       }
     

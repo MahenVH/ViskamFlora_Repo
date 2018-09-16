@@ -181,7 +181,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
-        <Property name="text" type="java.lang.String" value="eg - dd/mm/yyy"/>
+        <Property name="text" type="java.lang.String" value="eg - dd/mm/yyyy"/>
       </Properties>
     </Component>
   </SubComponents>
