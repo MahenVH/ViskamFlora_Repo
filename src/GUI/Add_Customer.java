@@ -193,9 +193,10 @@ public class Add_Customer extends javax.swing.JFrame {
         int Telephone_Pattern= Telephone.length();
         
         /*Validating date*/
+        /*
         String Date = txtDate.getText();
         String Date_Pattern = "^(0[1-9]|1[012])[-/.](0[1-9]|[12][0-9]|3[01])[-/.](19|20)\\d\\d$";
-   
+        */
         
     try
     {   
@@ -204,8 +205,8 @@ public class Add_Customer extends javax.swing.JFrame {
                 /*&&(Telephone.matches(Telephone_Pattern))*/
                 && (Fname_Pattern >1) 
                 && (Lname_Pattern >1) 
-                &&(Telephone_Pattern>=10))/*
-                && (Date.matches(Date_Pattern)))*/
+                &&(Telephone_Pattern>=10))
+            /*&& (Date.matches(Date_Pattern)))*/
         {   
         Class.forName(driver);
         Connection con= DriverManager.getConnection(url, user, pass);
