@@ -5,6 +5,10 @@
  */
 package GUI;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +23,12 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
     }
+    
+       
+    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
+    String user="mahen123";
+    String pass="1234";
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,9 +42,9 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtLogin = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        txtPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 500));
@@ -63,6 +73,8 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        txtPassword.setText("jPasswordField1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -74,10 +86,10 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtPassword)
                     .addComponent(txtLogin)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
+                    .addComponent(txtPassword))
                 .addContainerGap(157, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -87,33 +99,64 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
+                .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(97, 97, 97)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(101, 101, 101)
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addContainerGap(109, Short.MAX_VALUE))
         );
 
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtLogin, txtPassword});
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(txtLogin.getText().matches("abc"))
-        {
-        JOptionPane.showMessageDialog(null, "correct");
-        }
-        else
-        {
-         JOptionPane.showMessageDialog(null, "Incorrect");
-        }
+       try
+       {
+       /*sql query*/
+           
+       String sql="Select * from tablename where username=? and password=? ";
+       
+       /*Database connection */
+       Class.forName(driver);
+       Connection con= DriverManager.getConnection(url, user, pass);
+       
+       /*A SQL statement is pre-compiled and stored in a PreparedStatement object*/
+       PreparedStatement pst =con.prepareStatement(sql);
+       pst.setString(1, txtLogin.getText());
+       pst.setString(2, txtPassword.getText());
+       
+       /*ResultSet is returned after executing the query*/
+       ResultSet rs=pst.executeQuery();
+       
+            if(rs.next())
+            {
+            JOptionPane.showMessageDialog(this, "Username and Password correct");
+            CustomerGUI_Main CGmain = new CustomerGUI_Main();
+            CGmain.setVisible(true);
+            }
+
+            else
+            {
+            JOptionPane.showMessageDialog(this, "Username and Passowrd Incorrect");
+            }
+
+       }
+       catch(Exception e)
+       {
+       JOptionPane.showMessageDialog(this, e.getMessage());
+       }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+       /*reset button*/
+        txtLogin.setText("");
+        txtPassword.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -157,6 +200,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField txtLogin;
-    private javax.swing.JTextField txtPassword;
+    private javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables
 }
