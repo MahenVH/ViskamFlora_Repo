@@ -207,9 +207,14 @@ public class Add_Customer extends javax.swing.JFrame {
                 && (Lname_Pattern >1) 
                 &&(Telephone_Pattern>=10))
             /*&& (Date.matches(Date_Pattern)))*/
-        {   
+        { 
+        
+        /*Database connection */
+        
         Class.forName(driver);
         Connection con= DriverManager.getConnection(url, user, pass);
+        
+        /*sql query*/
         String sql="insert into Customer_Details"
                 +"(Customer_FName,Customer_LName,Customer_Address,Customer_Contact_Number,Customer_Email,Customer_Date_Added)"
                 +"values(?,?,?,?,?,?)";
@@ -222,7 +227,7 @@ public class Add_Customer extends javax.swing.JFrame {
         pst.setString(5, txtEmail.getText());
         pst.setString(6, txtDate.getText());
         
-        
+        /*Execute update is used to execute insert,update or delete queries*/
         pst.executeUpdate();
         JOptionPane.showMessageDialog(this, "Insert Succesfull");
                  
@@ -242,10 +247,10 @@ public class Add_Customer extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
  
-    
-        
-    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+   
+    /*Reset Button*/
+        
     txtFname.setText("");
     txtAddress.setText("");
     txtEmail.setText("");
