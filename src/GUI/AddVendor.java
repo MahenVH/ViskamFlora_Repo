@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class AddVendor extends javax.swing.JFrame {
     
-     /*private static Pattern PhoneNumPtrn = Pattern.compile("\\d{3}-\\d{7}");
+     private static Pattern PhoneNumPtrn = Pattern.compile("\\d{10}");
     
     
     public static boolean validatePhoneNumber(String phonenum){
@@ -33,7 +33,7 @@ public class AddVendor extends javax.swing.JFrame {
         return false;
         
     }
-    */
+    
     
     private static Pattern emailNamePtrn = Pattern.compile(
     "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
@@ -55,8 +55,8 @@ public class AddVendor extends javax.swing.JFrame {
     public boolean Validation()
     {
         String email=txtvaddemail.getText();
-        /*String phonenum=txtaddvtp.getText();*/
-        if(validateEmailAddress(email) /*&& validatePhoneNumber(phonenum)*/)
+        String phonenum=txtaddvtp.getText();
+        if(validateEmailAddress(email) && validatePhoneNumber(phonenum))
         {
             return true;
         }
@@ -261,6 +261,9 @@ public class AddVendor extends javax.swing.JFrame {
        
        try{
        
+           if(Validation())
+           {
+           
            Class.forName(driver);
            Connection con=DriverManager.getConnection(url, user, pass);
            String sql="insert into Vendor_Details"
@@ -277,6 +280,14 @@ public class AddVendor extends javax.swing.JFrame {
            
            pst.executeUpdate();
            JOptionPane.showMessageDialog(this, "Added successfully to the database");
+           }
+           
+           else
+           {
+               JOptionPane.showMessageDialog(this, "Invalid entry");
+           }
+           
+           
       }
       
       catch(Exception e)
