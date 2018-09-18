@@ -5,11 +5,65 @@
  */
 package GUI;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
+
+
 /**
  *
  * @author Purnima
  */
 public class AddVendor extends javax.swing.JFrame {
+    
+     private static Pattern PhoneNumPtrn = Pattern.compile("\\d{3}-\\d{7}");
+    
+    
+    public static boolean validatePhoneNumber(String phonenum){
+        
+         
+        Matcher mtch1 = PhoneNumPtrn.matcher(phonenum);
+        if(mtch1.matches()){
+            return true;
+        }
+       
+        return false;
+        
+    }
+    
+    
+    private static Pattern emailNamePtrn = Pattern.compile(
+    "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+  
+    
+    
+    public static boolean validateEmailAddress(String email){
+        
+         
+        Matcher mtch = emailNamePtrn.matcher(email);
+        if(mtch.matches()){
+            return true;
+        }
+       
+        return false;
+        
+    }
+    
+    public boolean Validation()
+    {
+        String email=txtvaddemail.getText();
+        String phonenum=txtaddvtp.getText();
+        if(validateEmailAddress(email) && validatePhoneNumber(phonenum))
+        {
+            return true;
+        }
+        
+        else
+        {
+            return false;
+        }
+    }
+    
 
     /**
      * Creates new form AddVendor
@@ -77,7 +131,12 @@ public class AddVendor extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        btnvadd.setText("Update");
+        btnvadd.setText("Add");
+        btnvadd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnvaddActionPerformed(evt);
+            }
+        });
 
         btnvcancel.setText("Cancel");
 
@@ -165,6 +224,21 @@ public class AddVendor extends javax.swing.JFrame {
     private void txtaddvidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtaddvidActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtaddvidActionPerformed
+
+    private void btnvaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvaddActionPerformed
+      
+       if (Validation())
+        {
+            JOptionPane.showMessageDialog(this, "Added successfully");
+        }
+        
+        else
+        {
+        
+            JOptionPane.showMessageDialog(this, "Invalid details entered");
+        }
+        
+    }//GEN-LAST:event_btnvaddActionPerformed
 
     /**
      * @param args the command line arguments
