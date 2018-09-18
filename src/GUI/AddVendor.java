@@ -5,6 +5,9 @@
  */
 package GUI;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -16,7 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class AddVendor extends javax.swing.JFrame {
     
-     private static Pattern PhoneNumPtrn = Pattern.compile("\\d{3}-\\d{7}");
+     /*private static Pattern PhoneNumPtrn = Pattern.compile("\\d{3}-\\d{7}");
     
     
     public static boolean validatePhoneNumber(String phonenum){
@@ -30,7 +33,7 @@ public class AddVendor extends javax.swing.JFrame {
         return false;
         
     }
-    
+    */
     
     private static Pattern emailNamePtrn = Pattern.compile(
     "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
@@ -52,8 +55,8 @@ public class AddVendor extends javax.swing.JFrame {
     public boolean Validation()
     {
         String email=txtvaddemail.getText();
-        String phonenum=txtaddvtp.getText();
-        if(validateEmailAddress(email) && validatePhoneNumber(phonenum))
+        /*String phonenum=txtaddvtp.getText();*/
+        if(validateEmailAddress(email) /*&& validatePhoneNumber(phonenum)*/)
         {
             return true;
         }
@@ -71,6 +74,14 @@ public class AddVendor extends javax.swing.JFrame {
     public AddVendor() {
         initComponents();
     }
+    
+    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
+    String user="purnima";
+    String pass="1234";
+    
+   
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -99,6 +110,8 @@ public class AddVendor extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txtiaddtype = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        txtvquantity = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -144,6 +157,8 @@ public class AddVendor extends javax.swing.JFrame {
 
         jLabel1.setText("Vendor ID");
 
+        jLabel8.setText("Quantity");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -157,7 +172,8 @@ public class AddVendor extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6)
-                    .addComponent(jLabel7))
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8))
                 .addGap(172, 172, 172)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -166,51 +182,57 @@ public class AddVendor extends javax.swing.JFrame {
                         .addComponent(btnvcancel))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtaddvid, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                            .addComponent(txtaddvid)
                             .addComponent(txtvaddname)
                             .addComponent(txtaddcompany)
                             .addComponent(txtaddlocation)
                             .addComponent(txtaddvtp)
                             .addComponent(txtvaddemail)
-                            .addComponent(txtiaddtype))
-                        .addGap(43, 43, 43)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 818, Short.MAX_VALUE)))
+                            .addComponent(txtiaddtype)
+                            .addComponent(txtvquantity, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(130, 130, 130)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 731, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(111, 111, 111)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(txtaddvid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtaddvid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(txtvaddname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtvaddname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(txtaddcompany, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtaddcompany, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(txtaddlocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtaddlocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(txtaddvtp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtaddvtp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(txtvaddemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtvaddemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtiaddtype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtvquantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addGap(37, 37, 37)
+                            .addComponent(jLabel2)
+                            .addGap(37, 37, 37)
+                            .addComponent(jLabel3)
+                            .addGap(45, 45, 45)
+                            .addComponent(jLabel4)
+                            .addGap(43, 43, 43)
+                            .addComponent(jLabel5)
+                            .addGap(37, 37, 37)
+                            .addComponent(jLabel6)
+                            .addGap(41, 41, 41)
                             .addComponent(jLabel7)
-                            .addComponent(txtiaddtype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel8))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnvadd)
@@ -237,7 +259,33 @@ public class AddVendor extends javax.swing.JFrame {
         
             JOptionPane.showMessageDialog(this, "Invalid details entered");
         }
+       
+       try{
+       Class.forName(driver);
+        Connection con= DriverManager.getConnection(url,user,pass);
         
+        String sql="insert into Vendor_Details"
+                +"(Vendor_Name,Comapny_Name,Location,Contact_Number,Email,Item_Bought,Item_Quantity_Bought)"
+                +"values(?,?,?,?,?,?,?)";
+        
+        PreparedStatement pst =con.prepareStatement(sql);
+        pst.setString(1, txtvaddname.getText());
+        pst.setString(2, txtaddcompany.getText());
+        pst.setString(3, txtaddlocation.getText());
+        pst.setString(4, txtaddvtp.getText());
+        pst.setString(5, txtvaddemail.getText());
+        pst.setString(6, txtiaddtype.getText());
+        pst.setString(7, txtvquantity.getText());
+        
+        pst.executeUpdate();
+       
+      }
+      
+      catch(Exception e)
+     {
+      
+       JOptionPane.showMessageDialog(this, e.getMessage());
+      }
     }//GEN-LAST:event_btnvaddActionPerformed
 
     /**
@@ -285,6 +333,7 @@ public class AddVendor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtaddcompany;
@@ -294,5 +343,6 @@ public class AddVendor extends javax.swing.JFrame {
     private javax.swing.JTextField txtiaddtype;
     private javax.swing.JTextField txtvaddemail;
     private javax.swing.JTextField txtvaddname;
+    private javax.swing.JTextField txtvquantity;
     // End of variables declaration//GEN-END:variables
 }
