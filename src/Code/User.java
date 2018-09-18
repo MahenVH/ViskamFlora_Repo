@@ -20,48 +20,55 @@ public class User {
         
     this.Customer_ID=Customer_ID;
     this.Customer_FName=Customer_FName;
+    this.Customer_LName=Customer_LName;
     this.Customer_Address=Customer_Address;
     this.Customer_Contact_Number=Customer_Contact_Number;
     this.Customer_Email=Customer_Email;
     this.Customer_Date_Added=Customer_Date_Added;
   
     }
+
+    public User(int aInt, String string, String string0, String string1, String string2, int aInt0, String string3, String string4) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+  
     
-    public int Customer_ID()
+    public int getCustomer_ID()
     {
     return Customer_ID;
     
     }
     
-    public String Customer_FName()
+    public String getCustomer_FName()
     {
     return Customer_FName;
     }
     
-    public String Custommer_Lname()
+    public String getCustomer_Lname()
     {
         return Customer_LName;
     }
     
     
-    public String Customer_Address()
+    public String getCustomer_Address()
     {
     
     return Customer_Address;    
     }
     
-    public int Customer_Contact_Number()
+    public int getCustomer_Contact_Number()
     {
     return Customer_Contact_Number;
     
     }
     
-    public String Customer_Email()
+    public String getCustomer_Email()
     {
     return Customer_Email;
     }
     
-    public String Customer_Date_Added()
+    public String getCustomer_Date_Added()
     {
     return Customer_Date_Added;
     }
