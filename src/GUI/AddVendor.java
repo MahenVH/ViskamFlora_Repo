@@ -79,7 +79,6 @@ public class AddVendor extends javax.swing.JFrame {
     String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
     String user="purnima";
     String pass="1234";
-    
    
     
 
@@ -249,7 +248,7 @@ public class AddVendor extends javax.swing.JFrame {
 
     private void btnvaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvaddActionPerformed
       
-       if (Validation())
+      /* if (Validation())
         {
             JOptionPane.showMessageDialog(this, "Added successfully");
         }
@@ -258,33 +257,32 @@ public class AddVendor extends javax.swing.JFrame {
         {
         
             JOptionPane.showMessageDialog(this, "Invalid details entered");
-        }
+        }*/
        
        try{
-       Class.forName(driver);
-        Connection con= DriverManager.getConnection(url,user,pass);
-        
-        String sql="insert into Vendor_Details"
-                +"(Vendor_Name,Comapny_Name,Location,Contact_Number,Email,Item_Bought,Item_Quantity_Bought)"
-                +"values(?,?,?,?,?,?,?)";
-        
-        PreparedStatement pst =con.prepareStatement(sql);
-        pst.setString(1, txtvaddname.getText());
-        pst.setString(2, txtaddcompany.getText());
-        pst.setString(3, txtaddlocation.getText());
-        pst.setString(4, txtaddvtp.getText());
-        pst.setString(5, txtvaddemail.getText());
-        pst.setString(6, txtiaddtype.getText());
-        pst.setString(7, txtvquantity.getText());
-        
-        pst.executeUpdate();
        
+           Class.forName(driver);
+           Connection con=DriverManager.getConnection(url, user, pass);
+           String sql="insert into Vendor_Details"
+                   +"(Vendor_Name,Comapny_Name,Location,Contact_Number,Email,Item_Bought,Item_Quantity_Bought)"
+                   +"values(?,?,?,?,?,?,?)";
+           PreparedStatement pst=con.prepareStatement(sql);
+           pst.setString(1,txtvaddname.getText());
+           pst.setString(2, txtaddcompany.getText());
+           pst.setString(3,txtaddlocation.getText());
+           pst.setString(4, txtaddvtp.getText());
+           pst.setString(5, txtvaddemail.getText());
+           pst.setString(6,txtiaddtype.getText());
+           pst.setString(7, txtvquantity.getText());
+           
+           pst.executeUpdate();
+           JOptionPane.showMessageDialog(this, "Added successfully to the database");
       }
       
       catch(Exception e)
      {
-      
-       JOptionPane.showMessageDialog(this, e.getMessage());
+         JOptionPane.showMessageDialog(this, e.getMessage());
+       
       }
     }//GEN-LAST:event_btnvaddActionPerformed
 
