@@ -13,6 +13,9 @@ import java.sql.PreparedStatement;
  */
 public class Check_Inventory extends javax.swing.JFrame {
 
+    private Object pst;
+    private Object rs;
+
     /**
      * Creates new form Check_Inventory
      */
@@ -31,11 +34,12 @@ public class Check_Inventory extends javax.swing.JFrame {
             String sql="select Item_id,Quantity from Inventory_Details where Item_Id='"+ txtItemId.getText() +"' ";
             
             pst=con.prepareStatement(sql);
-            rs=pst.excuteQuery();
+            rs=pst.execu teQuery();
             
-            if(rs.next()){
-                DisplayItemId.setText(rs.getInt(1));
-                DisplayQuantity.setText(rs.getInt);
+            if(!rs.next()){
+            } else {
+                DisplayItemId.setText(rs);
+                DisplayQuantity.setText(rs.getClass(2));
             }
                     
             
@@ -148,6 +152,7 @@ public class Check_Inventory extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        //call search button
         ShowRecord();
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -201,6 +206,16 @@ public class Check_Inventory extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtItemId;
     // End of variables declaration//GEN-END:variables
+
+    private static class con {
+
+        private static Object prepareStatement(String sql) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        public con() {
+        }
+    }
 
     
 }
