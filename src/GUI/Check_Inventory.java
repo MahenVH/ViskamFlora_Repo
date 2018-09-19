@@ -5,7 +5,11 @@
  */
 package GUI;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,8 +17,7 @@ import java.sql.PreparedStatement;
  */
 public class Check_Inventory extends javax.swing.JFrame {
 
-    private Object pst;
-    private Object rs;
+    
 
     /**
      * Creates new form Check_Inventory
@@ -22,28 +25,40 @@ public class Check_Inventory extends javax.swing.JFrame {
     public Check_Inventory() {
         initComponents();
     }
-    
-    
+    /*
+    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
+    String user="mahen123";
+    String pass="1234";
+    */
     
     
     //how to Search records
     public void ShowRecord(){
         
         try {
-            
+            Class.forName(driver);
+            Connection con= DriverManager.getConnection(url, user, pass);
             String sql="select Item_id,Quantity from Inventory_Details where Item_Id='"+ txtItemId.getText() +"' ";
+            PreparedStatement pst=con.prepareStatement(sql);
+            ResultSet rs= pst.executeQuery();
             
-            pst=con.prepareStatement(sql);
-            rs=pst.execu teQuery();
+            if(!rs.next())
+            {
+                
+            }
             
-            if(!rs.next()){
-            } else {
+            else 
+            {
                 DisplayItemId.setText(rs);
                 DisplayQuantity.setText(rs.getClass(2));
             }
                     
             
-        } catch (Exception e) {
+        }
+        catch (Exception e) 
+        {
+            JOptionPane.showMessageDialog(this, e.getMessage());
         }
         
     }
