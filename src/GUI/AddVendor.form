@@ -146,6 +146,9 @@
     <Component class="javax.swing.JTextField" name="txtvaddname">
     </Component>
     <Component class="javax.swing.JTextField" name="txtaddcompany">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtaddcompanyActionPerformed"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
@@ -176,8 +179,14 @@
       </SubComponents>
     </Container>
     <Component class="javax.swing.JTextField" name="txtaddlocation">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtaddlocationActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtaddvtp">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtaddvtpActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtvaddemail">
     </Component>
@@ -200,6 +209,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtiaddtype">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtiaddtypeActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>

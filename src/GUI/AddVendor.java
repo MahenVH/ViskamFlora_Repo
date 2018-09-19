@@ -136,6 +136,12 @@ public class AddVendor extends javax.swing.JFrame {
             }
         });
 
+        txtaddcompany.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtaddcompanyActionPerformed(evt);
+            }
+        });
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -149,6 +155,18 @@ public class AddVendor extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        txtaddlocation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtaddlocationActionPerformed(evt);
+            }
+        });
+
+        txtaddvtp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtaddvtpActionPerformed(evt);
+            }
+        });
+
         btnvadd.setText("Add");
         btnvadd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,6 +177,12 @@ public class AddVendor extends javax.swing.JFrame {
         btnvcancel.setText("Cancel");
 
         jLabel7.setText("Item Type Bought");
+
+        txtiaddtype.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtiaddtypeActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Vendor ID");
 
@@ -301,6 +325,22 @@ public class AddVendor extends javax.swing.JFrame {
        
       }
     }//GEN-LAST:event_btnvaddActionPerformed
+
+    private void txtaddcompanyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtaddcompanyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtaddcompanyActionPerformed
+
+    private void txtiaddtypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtiaddtypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtiaddtypeActionPerformed
+
+    private void txtaddvtpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtaddvtpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtaddvtpActionPerformed
+
+    private void txtaddlocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtaddlocationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtaddlocationActionPerformed
 
     /**
      * @param args the command line arguments
