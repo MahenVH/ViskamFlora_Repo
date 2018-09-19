@@ -7,12 +7,14 @@
 
 package GUI;
  
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 
@@ -33,12 +35,38 @@ public class UpdateVendor extends javax.swing.JFrame {
     
     public UpdateVendor() {
         initComponents();
+   
     }
     
     String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
     String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
     String user="purnima";
     String pass="1234";
+    ResultSet rs;
+    
+    
+    
+    
+    private void getVlaue()
+    {
+        try {
+            txtvid.setText(rs.getString("Vendor_ID"));
+            txtvname.setText(rs.getString("Vendor_Name"));
+            txtcompany.setText(rs.getString("Comapny_Name"));
+            txtlocation.setText(rs.getString("Location"));
+            txtvtp.setText(rs.getString("Contact_Number"));
+            txtvemail.setText(rs.getString("Email"));
+            txtitype.setText(rs.getString("Item_Bought"));
+            txtvquantity.setText(rs.getString("Item_Quantity_Bought"));
+            
+            
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e);
+        }
+        
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -66,11 +94,12 @@ public class UpdateVendor extends javax.swing.JFrame {
         txtvname = new javax.swing.JTextField();
         txtcompany = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        vendortable = new javax.swing.JTable();
         txtvquantity = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         btnvsearch = new javax.swing.JButton();
         txtvsearch = new javax.swing.JTextField();
+        btnview = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,18 +127,15 @@ public class UpdateVendor extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        vendortable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "VendorID", "Vendor Name", "Company Name", "Location", "Contact Number", "Email", "Item Bought", "Item Quantity Bought"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(vendortable);
 
         jLabel8.setText("Quantity");
 
@@ -120,35 +146,17 @@ public class UpdateVendor extends javax.swing.JFrame {
             }
         });
 
+        btnview.setText("View");
+        btnview.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnviewActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtvsearch)
-                    .addComponent(txtvname, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
-                    .addComponent(txtcompany, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
-                    .addComponent(txtlocation, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
-                    .addComponent(txtvtp, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
-                    .addComponent(txtitype, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
-                    .addComponent(txtvemail, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
-                    .addComponent(txtvid, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE))
-                .addGap(34, 34, 34)
-                .addComponent(btnvsearch)
-                .addGap(93, 93, 93)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 821, Short.MAX_VALUE)
-                .addGap(30, 30, 30))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -162,6 +170,36 @@ public class UpdateVendor extends javax.swing.JFrame {
                         .addGap(77, 77, 77)
                         .addComponent(txtvquantity, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnview))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtvsearch)
+                            .addComponent(txtvname, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                            .addComponent(txtcompany, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                            .addComponent(txtlocation, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                            .addComponent(txtvtp, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                            .addComponent(txtitype, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                            .addComponent(txtvemail, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                            .addComponent(txtvid, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE))
+                        .addGap(34, 34, 34)
+                        .addComponent(btnvsearch)
+                        .addGap(93, 93, 93)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 821, Short.MAX_VALUE)))
+                .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,13 +244,15 @@ public class UpdateVendor extends javax.swing.JFrame {
                         .addComponent(txtvsearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnvsearch))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(134, 134, 134)
                         .addComponent(btnvupdate)
-                        .addContainerGap(100, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(btnview)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                         .addComponent(btnvcancel)
                         .addGap(77, 77, 77))))
         );
@@ -226,18 +266,31 @@ public class UpdateVendor extends javax.swing.JFrame {
 
     private void btnvsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvsearchActionPerformed
         // TODO add your handling code here:
-        String sql="select * from Vendor_Details where Vendor_Name=?";
+        
         
         try {
             Class.forName(driver);
            Connection con=DriverManager.getConnection(url, user, pass);
-            PreparedStatement pst=con.prepareStatement(sql);
+           PreparedStatement pst;
+           /*String sql="select * from Vendor_Details where Vendor_Name=?";
+            
+                    pst=con.prepareStatement(sql);
             pst.setString(1, txtvsearch.getText());
             
-             ResultSet rs = pst.executeQuery();
+             rs = pst.executeQuery();
             
             if (rs.next()) {
-                txtvid.setText(rs.getString("Vendor_ID"));
+                getVlaue();
+            }*/
+            
+            String sql1="select * from Vendor_Details where Vendor_ID=?";
+            pst=con.prepareStatement(sql1);
+            pst.setString(1, txtvsearch.getText());
+            
+             rs = pst.executeQuery();
+            
+            if (rs.next()) {
+                getVlaue();
             }
             
             
@@ -246,6 +299,26 @@ public class UpdateVendor extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnvsearchActionPerformed
+
+    private void btnviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewActionPerformed
+        // TODO add your handling code here:
+        try {
+            Connection con=DriverManager.getConnection(url, user, pass);
+            PreparedStatement pst;
+            pst=con.prepareStatement("select * from Vendor_Details");
+            rs=pst.executeQuery();
+            DefaultTableModel tm=(DefaultTableModel)vendortable.getModel();
+            tm.setRowCount(0);
+            
+            while (rs.next()) {                
+                Object o[]={rs.getInt("column1"),rs.getString("column2"),rs.getString("column3"),rs.getString("column4"),rs.getInt("column5"),rs.getString("column6"),rs.getString("column7"),rs.getInt("column8")};
+                tm.addRow(o);
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e);
+        }
+    }//GEN-LAST:event_btnviewActionPerformed
 
     /**
      * @param args the command line arguments
@@ -284,6 +357,7 @@ public class UpdateVendor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnvcancel;
+    private javax.swing.JButton btnview;
     private javax.swing.JButton btnvsearch;
     private javax.swing.JButton btnvupdate;
     private javax.swing.JLabel jLabel1;
@@ -295,7 +369,6 @@ public class UpdateVendor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtcompany;
     private javax.swing.JTextField txtitype;
     private javax.swing.JTextField txtlocation;
@@ -305,5 +378,6 @@ public class UpdateVendor extends javax.swing.JFrame {
     private javax.swing.JTextField txtvquantity;
     private javax.swing.JTextField txtvsearch;
     private javax.swing.JTextField txtvtp;
+    private javax.swing.JTable vendortable;
     // End of variables declaration//GEN-END:variables
 }
