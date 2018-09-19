@@ -37,10 +37,16 @@ public class UpdateVendor extends javax.swing.JFrame {
         initComponents();
    
     }
-    
+    /*
     String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
     String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
     String user="purnima";
+    String pass="1234";
+    */
+    
+    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
+    String user="mahen123";
     String pass="1234";
     ResultSet rs;
     
@@ -280,6 +286,7 @@ public class UpdateVendor extends javax.swing.JFrame {
              rs = pst.executeQuery();
             
             if (rs.next()) {
+
                 getVlaue();
             }*/
             
@@ -291,6 +298,10 @@ public class UpdateVendor extends javax.swing.JFrame {
             
             if (rs.next()) {
                 getVlaue();
+
+                txtvid.setText(rs.getString("Vendor_ID"));
+                
+
             }
             
             
