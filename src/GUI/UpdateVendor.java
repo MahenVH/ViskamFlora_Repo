@@ -60,6 +60,12 @@ public class UpdateVendor extends javax.swing.JFrame {
     String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
     String user="mahen123";
     String pass="1234";
+    */
+    
+    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
+    String user="mahen123";
+    String pass="1234";
     ResultSet rs;
     
     
@@ -313,7 +319,6 @@ public class UpdateVendor extends javax.swing.JFrame {
 
                 txtvid.setText(rs.getString("Vendor_ID"));
                 
-
             }
             
             
