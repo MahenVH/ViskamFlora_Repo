@@ -37,18 +37,18 @@ public class UpdateVendor extends javax.swing.JFrame {
         initComponents();
    
     }
-    
+    /*
     String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
     String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
     String user="purnima";
     String pass="1234";
+    */
     
-    /*
     String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
     String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
     String user="mahen123";
     String pass="1234";
-    */
+    
     
  
     
@@ -326,12 +326,19 @@ public class UpdateVendor extends javax.swing.JFrame {
             tm.setRowCount(0);
             
             while (rs.next()) {                
-                Object o[]={rs.getInt("column1"),rs.getString("column2"),rs.getString("column3"),rs.getString("column4"),rs.getInt("column5"),rs.getString("column6"),rs.getString("column7"),rs.getInt("column8")};
+                Object o[]={rs.getInt("Vendor_ID"),
+                    rs.getString("Vendor_Name"),
+                    rs.getString("Comapny_Name"),
+                    rs.getString("Location"),
+                    rs.getInt("Contact_Number"),
+                    rs.getString("Email"),
+                    rs.getString("Item_Bought"),
+                    rs.getInt("Item_Quantity_Bought")};
                 tm.addRow(o);
             }
             
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, e);
+            JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }//GEN-LAST:event_btnviewActionPerformed
 
