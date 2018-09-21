@@ -288,7 +288,7 @@ public class UpdateVendor extends javax.swing.JFrame {
             Class.forName(driver);
            Connection con=DriverManager.getConnection(url, user, pass);
            PreparedStatement pst;
-           /*String sql="select * from Vendor_Details where Vendor_Name=?";
+           String sql="select * from Vendor_Details where Vendor_Name=?";
             
                     pst=con.prepareStatement(sql);
             pst.setString(1, txtvsearch.getText());
@@ -298,7 +298,8 @@ public class UpdateVendor extends javax.swing.JFrame {
             if (rs.next()) {
 
                 getVlaue();
-            }*/
+                txtvname.setText(rs.getString("Vendor_Name"));
+            }
             
             String sql1="select * from Vendor_Details where Vendor_ID=?";
             pst=con.prepareStatement(sql1);
@@ -314,7 +315,8 @@ public class UpdateVendor extends javax.swing.JFrame {
             }
             
             
-        } catch (ClassNotFoundException | SQLException e) {
+        }
+        catch (Exception e) {
             JOptionPane.showMessageDialog(this, e);
         }
         
