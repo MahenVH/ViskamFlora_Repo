@@ -27,7 +27,7 @@ public class Check_Inventory extends javax.swing.JFrame {
     }
     
     String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
+    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB_New_";
     String user="nethsara123";
     String pass="123";
     
@@ -167,8 +167,29 @@ public class Check_Inventory extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        //call search button
-        ShowRecord();
+          try {
+            Class.forName(driver);
+           Connection con=DriverManager.getConnection(url, user, pass);
+           PreparedStatement pst;
+        
+            
+            String sql2="select * from Item_Details where Item_ID=?";
+            pst=con.prepareStatement(sql2);
+            pst.setString(1, txtItemId.getText());
+            
+             rs = pst.executeQuery();
+            
+            if (rs.next()) {
+                getVlaue();
+
+                txtitem_ID.setText(rs.getString("Item_ID"));
+                
+            }
+            
+            
+        } catch (ClassNotFoundException | SQLException e) {
+            JOptionPane.showMessageDialog(this, e);
+        }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
