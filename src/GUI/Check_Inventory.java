@@ -222,16 +222,7 @@ public class Check_Inventory extends javax.swing.JFrame {
     private javax.swing.JTextField txtItemId;
     // End of variables declaration//GEN-END:variables
 
-    private static class con {
-
-        private static Object prepareStatement(String sql) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-
-        public con() {
-        }
-    }
-
+   
     
 }
 
