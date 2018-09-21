@@ -9,8 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -26,20 +25,25 @@ public class Add_Item extends javax.swing.JFrame {
     public Add_Item() {
         initComponents();
     }
-    
+
    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB_New_";
    String user="ramod123";
    String pass="123";
+
+  
+    
+
    
-    ResultSet rs;
+ 
    
     /*
+
     String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
     String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
     String user="mahen123";
     String pass="1234";
-    */
+    
    
     /**
      * This method is called from within the constructor to initialize the form.
@@ -313,7 +317,7 @@ public class Add_Item extends javax.swing.JFrame {
             Connection con=DriverManager.getConnection(url, user, pass);
             PreparedStatement pst;
             pst=con.prepareStatement("select * from Item_Details");
-            rs=pst.executeQuery();
+            ResultSet rs=pst.executeQuery();
             DefaultTableModel tm=(DefaultTableModel)View_Details.getModel();
             tm.setRowCount(0);
             

@@ -92,7 +92,6 @@ public class AddEmployee extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        txteid = new javax.swing.JTextField();
         txtefname = new javax.swing.JTextField();
         txtelname = new javax.swing.JTextField();
         txtdesignation = new javax.swing.JTextField();
@@ -195,7 +194,6 @@ public class AddEmployee extends javax.swing.JFrame {
                             .addComponent(txtshift, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(cmbposition, 0, 290, Short.MAX_VALUE)
-                                .addComponent(txteid)
                                 .addComponent(txtefname)
                                 .addComponent(txtelname)
                                 .addComponent(txtdesignation)
@@ -218,11 +216,9 @@ public class AddEmployee extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txteid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                        .addGap(143, 143, 143)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtefname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
@@ -352,7 +348,6 @@ public class AddEmployee extends javax.swing.JFrame {
     private javax.swing.JTextField txtdob;
     private javax.swing.JTextField txteaddress;
     private javax.swing.JTextField txtefname;
-    private javax.swing.JTextField txteid;
     private javax.swing.JTextField txtelname;
     private javax.swing.JTextField txtephone;
     private javax.swing.JPasswordField txtpassword;
