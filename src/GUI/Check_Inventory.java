@@ -50,8 +50,8 @@ public class Check_Inventory extends javax.swing.JFrame {
             
             else 
             {
-                DisplayItemId.setText(rs);
-                DisplayQuantity.setText(rs.getClass(2));
+              //  DisplayItemId.setText(rs);
+                //DisplayQuantity.setText(rs.getClass(2));
             }
                     
             
