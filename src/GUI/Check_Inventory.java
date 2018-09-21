@@ -25,12 +25,12 @@ public class Check_Inventory extends javax.swing.JFrame {
     public Check_Inventory() {
         initComponents();
     }
-    /*
+    
     String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
     String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
-    String user="mahen123";
-    String pass="1234";
-    */
+    String user="nethsara123";
+    String pass="123";
+    
     
     
     //how to Search records
@@ -222,7 +222,7 @@ public class Check_Inventory extends javax.swing.JFrame {
     private javax.swing.JTextField txtItemId;
     // End of variables declaration//GEN-END:variables
 
-   
+   //hello
     
 }
 
