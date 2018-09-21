@@ -26,12 +26,18 @@ public class Remove_Item extends javax.swing.JFrame {
         initComponents();
        
     }
+   
     
+    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
+    String user="mahen123";
+    String pass="1234";
+   /* 
    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB_New_";
    String user="ramod123";
    String pass="123";
-   
+   */
    ResultSet rs;
    
    private void getVlaue()
