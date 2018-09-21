@@ -37,17 +37,17 @@ public class UpdateVendor extends javax.swing.JFrame {
         initComponents();
    
     }
-    /*
+    
     String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
     String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
     String user="purnima";
     String pass="1234";
-    */
     
-    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    
+    /*String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
     String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
     String user="mahen123";
-    String pass="1234";
+    String pass="1234";*/
     
     
  
@@ -115,6 +115,11 @@ public class UpdateVendor extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnvupdate.setText("Update");
+        btnvupdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnvupdateActionPerformed(evt);
+            }
+        });
 
         btnvcancel.setText("Cancel");
 
@@ -341,6 +346,35 @@ public class UpdateVendor extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }//GEN-LAST:event_btnviewActionPerformed
+
+    private void btnvupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvupdateActionPerformed
+        // TODO add your handling code here:
+        try {
+             Class.forName(driver);
+           Connection con=DriverManager.getConnection(url, user, pass);
+           
+           String value=txtvsearch.getText().toString();
+           
+           String query2="UPDATE Vendor_Details SET Vendor_Name=?,Comapny_Name=?, Location=?,Contact_Number=?,Email=?,Item_Bought=?,Item_Quantity_Bought=? where Vendor_ID="+value;
+           
+          PreparedStatement pst=con.prepareStatement(query2);
+           pst.setString(1,txtvname.getText());
+           pst.setString(2, txtcompany.getText());
+           pst.setString(3,txtlocation.getText());
+           pst.setString(4, txtvtp.getText());
+           pst.setString(5, txtvemail.getText());
+           pst.setString(6,txtitype.getText());
+           pst.setString(7, txtvquantity.getText());
+           
+           pst.executeUpdate();
+           JOptionPane.showMessageDialog(this, "Updated Successfully");
+           
+           
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+        
+    }//GEN-LAST:event_btnvupdateActionPerformed
 
     /**
      * @param args the command line arguments

@@ -31,38 +31,9 @@ public class Check_Inventory extends javax.swing.JFrame {
     String user="nethsara123";
     String pass="123";
     
+    ResultSet rs;
     
-    
-    //how to Search records
-    public void ShowRecord(){
-        
-        try {
-            Class.forName(driver);
-            Connection con= DriverManager.getConnection(url, user, pass);
-            String sql="select Item_id,Quantity from Inventory_Details where Item_Id='"+ txtItemId.getText() +"' ";
-            PreparedStatement pst=con.prepareStatement(sql);
-            ResultSet rs= pst.executeQuery();
-            
-            if(!rs.next())
-            {
-                
-            }
-            
-            else 
-            {
-                DisplayItemId.setText(rs);
-                DisplayQuantity.setText(rs.getClass(2));
-            }
-                    
-            
-        }
-        catch (Exception e) 
-        {
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
-        
-    }
-    
+   
     
     
     
@@ -167,14 +138,15 @@ public class Check_Inventory extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        // search button
           try {
             Class.forName(driver);
            Connection con=DriverManager.getConnection(url, user, pass);
            PreparedStatement pst;
         
             
-            String sql2="select * from Item_Details where Item_ID=?";
-            pst=con.prepareStatement(sql2);
+            String sql3="select * from Inventory_Details where Item_ID=?";
+            pst=con.prepareStatement(sql3);
             pst.setString(1, txtItemId.getText());
             
              rs = pst.executeQuery();
@@ -182,7 +154,7 @@ public class Check_Inventory extends javax.swing.JFrame {
             if (rs.next()) {
                 getVlaue();
 
-                txtitem_ID.setText(rs.getString("Item_ID"));
+                DisplayItemId.setText(rs.getString("Item_ID"));
                 
             }
             
