@@ -39,6 +39,7 @@ public class Check_Inventory extends javax.swing.JFrame {
         try {
             DisplayItemId.setText(rs.getString("Item_ID"));
             DisplayQuantity.setText(rs.getString("Quantity"));
+            DisplayItemName.setText(rs.getString("Item_Name"));
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e);
@@ -68,10 +69,12 @@ public class Check_Inventory extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         DisplayItemId = new javax.swing.JTextField();
         DisplayQuantity = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        DisplayItemName = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Item Id");
+        jLabel1.setText("Item Name");
 
         txtItemId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,6 +99,8 @@ public class Check_Inventory extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setText("Item Name");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -109,17 +114,20 @@ public class Check_Inventory extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(61, 61, 61))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
-                                .addGap(55, 55, 55)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(61, 61, 61)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(DisplayItemId)
-                            .addComponent(DisplayQuantity))))
+                            .addComponent(DisplayQuantity)
+                            .addComponent(DisplayItemName))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,9 +143,13 @@ public class Check_Inventory extends javax.swing.JFrame {
                     .addComponent(DisplayItemId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(DisplayQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(228, Short.MAX_VALUE))
+                    .addComponent(DisplayItemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(40, 40, 40)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DisplayQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addContainerGap(166, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -163,8 +175,12 @@ public class Check_Inventory extends javax.swing.JFrame {
            PreparedStatement pst;
         
             
-            String sql3="select Item_ID, Quantity from Inventory_Details where Item_ID=?";
+            String sql3="select * from Inventory_Details where Item_Name=?";
+            
+            
             pst=con.prepareStatement(sql3);
+            
+            
             pst.setString(1, txtItemId.getText());
             
              rs = pst.executeQuery();
@@ -173,7 +189,7 @@ public class Check_Inventory extends javax.swing.JFrame {
                 getVlaue();
                 DisplayItemId.setText(rs.getString("Item_ID"));
                 DisplayQuantity.setText(rs.getString("Quantity"));
-                
+                DisplayItemName.setText(rs.getString("Item_Name"));
             }
             
             
@@ -183,6 +199,12 @@ public class Check_Inventory extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
+    
+    
+    
+    
+    
     private void txtItemIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtItemIdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtItemIdActionPerformed
@@ -228,11 +250,13 @@ public class Check_Inventory extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField DisplayItemId;
+    private javax.swing.JTextField DisplayItemName;
     private javax.swing.JTextField DisplayQuantity;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtItemId;
     // End of variables declaration//GEN-END:variables
