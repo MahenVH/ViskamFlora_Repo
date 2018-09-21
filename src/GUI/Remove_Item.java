@@ -11,7 +11,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -26,18 +28,20 @@ public class Remove_Item extends javax.swing.JFrame {
         initComponents();
        
     }
+   
     
-     String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
     String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
-    String user="purnima";
+    String user="mahen123";
     String pass="1234";
-    
-   /*String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+   /* 
+   String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB_New_";
    String user="ramod123";
-   String pass="123";*/
-   
+   String pass="123";
+   */
    ResultSet rs;
+   ResultSet es;
    
    private void getVlaue()
     {
@@ -169,6 +173,12 @@ public class Remove_Item extends javax.swing.JFrame {
             }
         ));
         jScrollPane2.setViewportView(viewTable);
+
+        itemsearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                itemsearchKeyReleased(evt);
+            }
+        });
 
         txtCategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -317,12 +327,27 @@ public class Remove_Item extends javax.swing.JFrame {
             Class.forName(driver);
            Connection con=DriverManager.getConnection(url, user, pass);
            PreparedStatement pst;
-        
+         /*  
+           String sql1="select * from Item_Details where Item_Name=?";
             
-            String sql2="select * from Item_Details where Item_ID=?";
-            pst=con.prepareStatement(sql2);
+            pst=con.prepareStatement(sql1);
             pst.setString(1, itemsearch.getText());
             
+             rs = pst.executeQuery();
+            
+            if (rs.next()) {
+
+                getVlaue();
+                txtname.setText(rs.getString("Item_Name"));
+            }
+        
+           */ 
+            String sql2="select * from Item_Details where Item_ID=?";
+           
+          
+            pst=con.prepareStatement(sql2);
+            pst.setString(1, itemsearch.getText());
+           
              rs = pst.executeQuery();
             
             if (rs.next()) {
@@ -333,9 +358,11 @@ public class Remove_Item extends javax.swing.JFrame {
             }
             
             
-        } catch (ClassNotFoundException | SQLException e) {
-            JOptionPane.showMessageDialog(this, e);
+        } catch (ClassNotFoundException | SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex);
         }
+       
+        
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void txtitem_IDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtitem_IDKeyReleased
@@ -401,6 +428,17 @@ public class Remove_Item extends javax.swing.JFrame {
        
                
     }//GEN-LAST:event_btn_RemoveActionPerformed
+
+    private void itemsearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_itemsearchKeyReleased
+        // TODO add your handling code here:
+        DefaultTableModel table = (DefaultTableModel)viewTable.getModel();
+        String search = itemsearch.getText().toLowerCase();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(table);
+        viewTable.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(search));
+        
+        
+    }//GEN-LAST:event_itemsearchKeyReleased
 
     /**
      * @param args the command line arguments

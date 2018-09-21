@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -29,6 +31,26 @@ public class RemoveVendor extends javax.swing.JFrame {
     String pass="1234";
     
     ResultSet rs;
+    
+    private void getValue()
+    {
+        try {
+            txtremovevid.setText(rs.getString("Vendor_ID"));
+            txtremovevname.setText(rs.getString("Vendor_Name"));
+            txtremovecompany.setText(rs.getString("Comapny_Name"));
+            txtremovelocation.setText(rs.getString("Location"));
+            txtremovevtp.setText(rs.getString("Contact_Number"));
+            txtremovevemail.setText(rs.getString("Email"));
+            txtremoveitype.setText(rs.getString("Item_Bought"));
+            txtremovevquantity.setText(rs.getString("Item_Quantity_Bought"));
+            
+            
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e);
+        }
+    }
+        
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -96,7 +118,7 @@ public class RemoveVendor extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(vendortable);
 
-        btnvremove.setText("Update");
+        btnvremove.setText("Remove");
         btnvremove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnvremoveActionPerformed(evt);
@@ -240,18 +262,18 @@ public class RemoveVendor extends javax.swing.JFrame {
 
             if (rs.next()) {
 
-                getVlaue();
+                getValue();
                 txtremovevname.setText(rs.getString("Vendor_Name"));
             }
 
             String sql1="select * from Vendor_Details where Vendor_ID=?";
             pst=con.prepareStatement(sql1);
-            pst.setString(1, txtvsearch.getText());
+            pst.setString(1, txtvremovesearch.getText());
 
             rs = pst.executeQuery();
 
             if (rs.next()) {
-                getVlaue();
+                getValue();
 
                 txtremovevid.setText(rs.getString("Vendor_ID"));
 
@@ -270,29 +292,26 @@ public class RemoveVendor extends javax.swing.JFrame {
 
     private void btnvremoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvremoveActionPerformed
         // TODO add your handling code here:
+        
         try {
-            Class.forName(driver);
+                Class.forName(driver);
             Connection con=DriverManager.getConnection(url, user, pass);
-
-            String value=txtvsearch.getText().toString();
-
-            String query2="UPDATE Vendor_Details SET Vendor_Name=?,Comapny_Name=?, Location=?,Contact_Number=?,Email=?,Item_Bought=?,Item_Quantity_Bought=? where Vendor_ID="+value;
-
-            PreparedStatement pst=con.prepareStatement(query2);
-            pst.setString(1,txtremovevname.getText());
-            pst.setString(2, txtremovecompany.getText());
-            pst.setString(3,txtremovelocation.getText());
-            pst.setString(4, txtremovevtp.getText());
-            pst.setString(5, txtremovevemail.getText());
-            pst.setString(6,txtremoveitype.getText());
-            pst.setString(7, txtremovevquantity.getText());
-
+            PreparedStatement pst;
+            
+            String value=txtvremovesearch.getText().toString();
+            String query4="DELETE FROM Vendor_Details where Vendor_ID="+value;
+            pst=con.prepareStatement(query4);
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Updated Successfully");
-
-        } catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(this, "Deleted successfully");
+            
+        } 
+        
+        catch (Exception e) {
+            
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
+       
 
     }//GEN-LAST:event_btnvremoveActionPerformed
 
