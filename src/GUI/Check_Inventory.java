@@ -25,12 +25,12 @@ public class Check_Inventory extends javax.swing.JFrame {
     public Check_Inventory() {
         initComponents();
     }
-    /*
+    
     String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
     String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
     String user="mahen123";
     String pass="1234";
-    */
+    
     
     
     //how to Search records
