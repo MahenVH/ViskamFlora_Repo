@@ -123,6 +123,9 @@
         <Component class="javax.swing.JTextField" name="DisplayItemId">
         </Component>
         <Component class="javax.swing.JTextField" name="DisplayQuantity">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DisplayQuantityActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

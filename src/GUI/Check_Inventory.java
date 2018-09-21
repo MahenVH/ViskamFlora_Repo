@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -33,7 +34,18 @@ public class Check_Inventory extends javax.swing.JFrame {
     
     ResultSet rs;
     
-   
+    private void getVlaue()
+    {
+        try {
+            DisplayItemId.setText(rs.getString("Item_ID"));
+            DisplayQuantity.setText(rs.getString("Quantity"));
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e);
+        }
+        
+        
+    }
     
     
     
@@ -77,6 +89,12 @@ public class Check_Inventory extends javax.swing.JFrame {
         jLabel2.setText("Item Id");
 
         jLabel3.setText("Quantity");
+
+        DisplayQuantity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DisplayQuantityActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -145,7 +163,7 @@ public class Check_Inventory extends javax.swing.JFrame {
            PreparedStatement pst;
         
             
-            String sql3="select * from Inventory_Details where Item_ID=?";
+            String sql3="select Item_ID, Quantity from Inventory_Details where Item_ID=?";
             pst=con.prepareStatement(sql3);
             pst.setString(1, txtItemId.getText());
             
@@ -153,8 +171,8 @@ public class Check_Inventory extends javax.swing.JFrame {
             
             if (rs.next()) {
                 getVlaue();
-
                 DisplayItemId.setText(rs.getString("Item_ID"));
+                DisplayQuantity.setText(rs.getString("Quantity"));
                 
             }
             
@@ -168,6 +186,10 @@ public class Check_Inventory extends javax.swing.JFrame {
     private void txtItemIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtItemIdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtItemIdActionPerformed
+
+    private void DisplayQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DisplayQuantityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DisplayQuantityActionPerformed
 
     /**
      * @param args the command line arguments
@@ -214,6 +236,8 @@ public class Check_Inventory extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtItemId;
     // End of variables declaration//GEN-END:variables
+
+
 
    //hello
     
