@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,42 +28,32 @@ public class Check_Inventory extends javax.swing.JFrame {
     }
     
     String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    /*
     String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
     String user="mahen123";
     String pass="1234";
+    */
+
+    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB_New_";
+    String user="nethsara123";
+    String pass="123";
+
     
+    ResultSet rs;
     
-    
-    //how to Search records
-    public void ShowRecord(){
-        
+    private void getVlaue()
+    {
         try {
-            Class.forName(driver);
-            Connection con= DriverManager.getConnection(url, user, pass);
-            String sql="select Item_id,Quantity from Inventory_Details where Item_Id='"+ txtItemId.getText() +"' ";
-            PreparedStatement pst=con.prepareStatement(sql);
-            ResultSet rs= pst.executeQuery();
+            DisplayItemId.setText(rs.getString("Item_ID"));
+            DisplayQuantity.setText(rs.getString("Quantity"));
+            DisplayItemName.setText(rs.getString("Item_Name"));
             
-            if(!rs.next())
-            {
-                
-            }
-            
-            else 
-            {
-                DisplayItemId.setText(rs);
-                DisplayQuantity.setText(rs.getClass(2));
-            }
-                    
-            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e);
         }
-        catch (Exception e) 
-        {
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
+        
         
     }
-    
     
     
     
@@ -85,10 +76,12 @@ public class Check_Inventory extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         DisplayItemId = new javax.swing.JTextField();
         DisplayQuantity = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        DisplayItemName = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Item Id");
+        jLabel1.setText("Item Name");
 
         txtItemId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,6 +100,14 @@ public class Check_Inventory extends javax.swing.JFrame {
 
         jLabel3.setText("Quantity");
 
+        DisplayQuantity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DisplayQuantityActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Item Name");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -120,17 +121,20 @@ public class Check_Inventory extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(61, 61, 61))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
-                                .addGap(55, 55, 55)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(61, 61, 61)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(DisplayItemId)
-                            .addComponent(DisplayQuantity))))
+                            .addComponent(DisplayQuantity)
+                            .addComponent(DisplayItemName))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,9 +150,13 @@ public class Check_Inventory extends javax.swing.JFrame {
                     .addComponent(DisplayItemId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(DisplayQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(228, Short.MAX_VALUE))
+                    .addComponent(DisplayItemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(40, 40, 40)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DisplayQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addContainerGap(166, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -167,14 +175,50 @@ public class Check_Inventory extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        //call search button
-        ShowRecord();
+        // search button
+          try {
+            Class.forName(driver);
+           Connection con=DriverManager.getConnection(url, user, pass);
+           PreparedStatement pst;
+        
+            
+            String sql3="select * from Inventory_Details where Item_Name=?";
+            
+            
+            pst=con.prepareStatement(sql3);
+            
+            
+            pst.setString(1, txtItemId.getText());
+            
+             rs = pst.executeQuery();
+            
+            if (rs.next()) {
+                getVlaue();
+                DisplayItemId.setText(rs.getString("Item_ID"));
+                DisplayQuantity.setText(rs.getString("Quantity"));
+                DisplayItemName.setText(rs.getString("Item_Name"));
+            }
+            
+            
+        } catch (ClassNotFoundException | SQLException e) {
+            JOptionPane.showMessageDialog(this, e);
+        }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
+    
+    
+    
+    
+    
     private void txtItemIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtItemIdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtItemIdActionPerformed
+
+    private void DisplayQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DisplayQuantityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DisplayQuantityActionPerformed
 
     /**
      * @param args the command line arguments
@@ -213,25 +257,20 @@ public class Check_Inventory extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField DisplayItemId;
+    private javax.swing.JTextField DisplayItemName;
     private javax.swing.JTextField DisplayQuantity;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtItemId;
     // End of variables declaration//GEN-END:variables
 
-    private static class con {
 
-        private static Object prepareStatement(String sql) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
 
-        public con() {
-        }
-    }
-
+   //hello
     
 }
 

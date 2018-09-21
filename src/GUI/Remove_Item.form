@@ -346,6 +346,9 @@
     <Component class="javax.swing.JTextField" name="txtMadeby">
     </Component>
     <Component class="javax.swing.JTextField" name="itemsearch">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="itemsearchKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCategory">
       <Events>
