@@ -5,9 +5,9 @@
  */
 package GUI;
 
+import java.time.format.DateTimeFormatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,7 +18,7 @@ public class AddEmployee extends javax.swing.JFrame {
     /**
      * Creates new form AddEmployee
      */
-    
+ 
     
  /*   private static Pattern txt_Phone = Pattern.compile("\\d{3}-\\d{7}");
     
@@ -49,7 +49,19 @@ public class AddEmployee extends javax.swing.JFrame {
         
     }
     
-    
+       public static void DOB(String date) {
+        DateTimeFormatter formatter= DateTimeFormatter.ofPattern("\\d{2}-\\d{2}-\\d{4}");
+        try
+        {
+            
+            formatter.parse(date);
+            System.out.println("");
+        }
+        catch(Exception e)
+                {
+                    System.out.print("X");
+                }
+    }
     
     
     public boolean Validation()
@@ -118,6 +130,7 @@ public class AddEmployee extends javax.swing.JFrame {
         errCon = new javax.swing.JLabel();
         errpw = new javax.swing.JLabel();
         errCpw = new javax.swing.JLabel();
+        errShift = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -197,7 +210,7 @@ public class AddEmployee extends javax.swing.JFrame {
 
         jLabel12.setText("Ex : 011-1234567");
 
-        jLabel13.setText("Ex : dd/mm/yyyy");
+        jLabel13.setText("Ex : yyyy-mm-dd");
 
         errFname.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         errFname.setForeground(new java.awt.Color(255, 0, 0));
@@ -222,6 +235,9 @@ public class AddEmployee extends javax.swing.JFrame {
 
         errCpw.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         errCpw.setForeground(new java.awt.Color(255, 0, 0));
+
+        errShift.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        errShift.setForeground(new java.awt.Color(204, 0, 0));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -269,7 +285,7 @@ public class AddEmployee extends javax.swing.JFrame {
                                 .addComponent(btnecancel, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtpassword)
                             .addComponent(txtpasswordconfirm))
-                        .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -280,7 +296,8 @@ public class AddEmployee extends javax.swing.JFrame {
                                     .addComponent(errLname, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE))
                                 .addComponent(errDob, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(errAddr, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(errDes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(errDes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(errShift, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
@@ -296,11 +313,11 @@ public class AddEmployee extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(128, 128, 128)
                                 .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txt_Fname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel2)
@@ -332,7 +349,7 @@ public class AddEmployee extends javax.swing.JFrame {
                                     .addComponent(txt_Shift, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel7))
                                 .addGap(52, 52, 52))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -345,6 +362,8 @@ public class AddEmployee extends javax.swing.JFrame {
                                         .addGap(228, 228, 228)
                                         .addComponent(errDes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(errShift, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(20, 20, 20)
                                         .addComponent(errAddr, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -354,7 +373,6 @@ public class AddEmployee extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(errCon, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(3, 3, 3)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12)
                     .addComponent(errPhoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -431,12 +449,7 @@ public class AddEmployee extends javax.swing.JFrame {
             errAddr.setText("");
         }
         
-        if(phone.equals("")){
-            errCon.setText("X");
-        }
-         else{
-            errCon.setText("");
-        }
+        
         
         if(password.equals("")){
             errpw.setText("X");
@@ -445,12 +458,44 @@ public class AddEmployee extends javax.swing.JFrame {
             errpw.setText("");
         }
         
-        if(passwordconfirm.equals("")){
-            errCpw.setText("X");
-        }
-         else{
+        if(passwordconfirm.equals(txtpassword.getText())){
             errCpw.setText("");
         }
+         else{
+            errCpw.setText("X");
+        }
+        
+        if(Shift.equals("")){
+            errShift.setText("X");
+        }
+         else{
+            errShift.setText("");
+        }
+        
+        
+        Pattern p = Pattern.compile("\\d{3}-\\d{7}");
+        Matcher m = p.matcher(txt_Phone.getText());
+        if(m.matches())
+        {
+            errCon.setText("");
+        }
+        else
+       {
+            errCon.setText("X");
+       }
+        
+        
+        Pattern b = Pattern.compile("\\d{4}-[01]\\d-[0-3]\\d");
+        Matcher ma = b.matcher(txt_dob.getText());
+        if(ma.matches())
+        {
+            errDob.setText("");
+         }
+        else
+       {
+            errDob.setText("X");
+       }
+        
         
         
         
@@ -537,6 +582,7 @@ public class AddEmployee extends javax.swing.JFrame {
     private javax.swing.JLabel errFname;
     private javax.swing.JLabel errLname;
     private javax.swing.JLabel errPhoneNum;
+    private javax.swing.JLabel errShift;
     private javax.swing.JLabel errpw;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
