@@ -12,6 +12,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -38,21 +40,14 @@ public class UpdateVendor extends javax.swing.JFrame {
    
     }
     
-    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
-    String user="mahen123";
-    String pass="1234";
-    /*
+    
     String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
     String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
     String user="purnima";
     String pass="1234";
-    */
     
-    /*String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
-    String user="mahen123";
-    String pass="1234";*/
+    
+ 
     
     
  
@@ -60,6 +55,54 @@ public class UpdateVendor extends javax.swing.JFrame {
   
     ResultSet rs;
     
+    
+    private static Pattern PhoneNumPtrn = Pattern.compile("\\d{10}");
+    
+    
+    public static boolean validatePhoneNumber(String phonenum){
+        
+         
+        Matcher mtch1 = PhoneNumPtrn.matcher(phonenum);
+        if(mtch1.matches()){
+            return true;
+        }
+       
+        return false;
+        
+    }
+    
+    
+    private static Pattern emailNamePtrn = Pattern.compile(
+    "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+  
+    
+    
+    public static boolean validateEmailAddress(String email){
+        
+         
+        Matcher mtch = emailNamePtrn.matcher(email);
+        if(mtch.matches()){
+            return true;
+        }
+       
+        return false;
+        
+    }
+    
+    public boolean Validation()
+    {
+        String email=txtvemail.getText();
+        String phonenum=txtvtp.getText();
+        if(validateEmailAddress(email) && validatePhoneNumber(phonenum))
+        {
+            return true;
+        }
+        
+        else
+        {
+            return false;
+        }
+    }
     
     
     
@@ -363,28 +406,37 @@ public class UpdateVendor extends javax.swing.JFrame {
     private void btnvupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvupdateActionPerformed
         // TODO add your handling code here:
         try {
-             Class.forName(driver);
-           Connection con=DriverManager.getConnection(url, user, pass);
+            
+            if(Validation())
+                    {
+                        Class.forName(driver);
+                      Connection con=DriverManager.getConnection(url, user, pass);
+
+                      String value=txtvsearch.getText().toString();
+
+                      String query2="UPDATE Vendor_Details SET Vendor_Name=?,"
+                              + "Comapny_Name=?, Location=?,Contact_Number=?,Email=?,Item_Bought=?,Item_Quantity_Bought=? where Vendor_ID="+value;
+
+                     PreparedStatement pst=con.prepareStatement(query2);
+                      pst.setString(1,txtvname.getText());
+                      pst.setString(2, txtcompany.getText());
+                      pst.setString(3,txtlocation.getText());
+                      pst.setString(4, txtvtp.getText());
+                      pst.setString(5, txtvemail.getText());
+                      pst.setString(6,txtitype.getText());
+                      pst.setString(7, txtvquantity.getText());
+
+                      pst.executeUpdate();
+                      JOptionPane.showMessageDialog(this, "Updated Successfully");
+                    }
+            else{
+                        JOptionPane.showMessageDialog(this, "Invalid entry");
+                }
            
-           String value=txtvsearch.getText().toString();
            
-           String query2="UPDATE Vendor_Details SET Vendor_Name=?,"
-                   + "Comapny_Name=?, Location=?,Contact_Number=?,Email=?,Item_Bought=?,Item_Quantity_Bought=? where Vendor_ID="+value;
-           
-          PreparedStatement pst=con.prepareStatement(query2);
-           pst.setString(1,txtvname.getText());
-           pst.setString(2, txtcompany.getText());
-           pst.setString(3,txtlocation.getText());
-           pst.setString(4, txtvtp.getText());
-           pst.setString(5, txtvemail.getText());
-           pst.setString(6,txtitype.getText());
-           pst.setString(7, txtvquantity.getText());
-           
-           pst.executeUpdate();
-           JOptionPane.showMessageDialog(this, "Updated Successfully");
-           
-           
-        } catch (Exception e) {
+        } 
+        
+        catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
         
