@@ -12,7 +12,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -38,11 +38,16 @@ public class UpdateVendor extends javax.swing.JFrame {
    
     }
     
+     String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
+    String user="mahen123";
+    String pass="1234";
+    /*
     String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
     String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
     String user="purnima";
     String pass="1234";
-    
+    */
     
     /*String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
     String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
@@ -286,16 +291,17 @@ public class UpdateVendor extends javax.swing.JFrame {
         
         try {
             Class.forName(driver);
-           Connection con=DriverManager.getConnection(url, user, pass);
-           PreparedStatement pst;
-           String sql="select * from Vendor_Details where Vendor_Name=?";
-            
-                    pst=con.prepareStatement(sql);
+            Connection con=DriverManager.getConnection(url, user, pass);
+            PreparedStatement pst;
+           
+            String sql="select * from Vendor_Details where Vendor_Name=?";
+            pst=con.prepareStatement(sql);
             pst.setString(1, txtvsearch.getText());
             
-             rs = pst.executeQuery();
+            rs = pst.executeQuery();
             
-            if (rs.next()) {
+            if (rs.next()) 
+            {
 
                 getVlaue();
                 txtvname.setText(rs.getString("Vendor_Name"));
@@ -307,9 +313,9 @@ public class UpdateVendor extends javax.swing.JFrame {
             
              rs = pst.executeQuery();
             
-            if (rs.next()) {
+            if (rs.next()) 
+            {
                 getVlaue();
-
                 txtvid.setText(rs.getString("Vendor_ID"));
                 
             }
@@ -333,7 +339,7 @@ public class UpdateVendor extends javax.swing.JFrame {
             tm.setRowCount(0);
             
             while (rs.next()) {                
-                Object o[]={rs.getInt("Vendor_ID"),
+                Object o[]={rs.getString("Vendor_ID"),
                     rs.getString("Vendor_Name"),
                     rs.getString("Comapny_Name"),
                     rs.getString("Location"),
@@ -357,7 +363,8 @@ public class UpdateVendor extends javax.swing.JFrame {
            
            String value=txtvsearch.getText().toString();
            
-           String query2="UPDATE Vendor_Details SET Vendor_Name=?,Comapny_Name=?, Location=?,Contact_Number=?,Email=?,Item_Bought=?,Item_Quantity_Bought=? where Vendor_ID="+value;
+           String query2="UPDATE Vendor_Details SET Vendor_Name=?,"
+                   + "Comapny_Name=?, Location=?,Contact_Number=?,Email=?,Item_Bought=?,Item_Quantity_Bought=? where Vendor_ID="+value;
            
           PreparedStatement pst=con.prepareStatement(query2);
            pst.setString(1,txtvname.getText());
