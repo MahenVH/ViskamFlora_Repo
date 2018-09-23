@@ -34,7 +34,7 @@
                           <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
@@ -50,30 +50,34 @@
                   </Group>
               </Group>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="errPhoneNum" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="btneadd" min="-2" pref="95" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btnecancel" min="-2" pref="90" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jButton1" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="txt_Shift" min="-2" pref="290" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="cmbposition" pref="290" max="32767" attributes="0"/>
-                          <Component id="txt_Fname" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txt_Lname" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txt_Designation" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txt_dob" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txt_Address" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txt_Phone" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="btneadd" min="-2" pref="112" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="btnecancel" min="-2" pref="111" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="txtpassword" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtpasswordconfirm" alignment="0" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="errPhoneNum" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="txt_Shift" min="-2" pref="290" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="cmbposition" pref="290" max="32767" attributes="0"/>
+                              <Component id="txt_Fname" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txt_Lname" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txt_Designation" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txt_dob" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txt_Address" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txt_Phone" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtpassword" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtpasswordconfirm" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="jLabel13" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -89,6 +93,7 @@
                               <Component id="errAddr" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <Component id="errDes" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="errShift" alignment="0" min="-2" pref="21" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" pref="645" max="32767" attributes="0"/>
@@ -111,11 +116,11 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="77" max="32767" attributes="0"/>
+                              <EmptySpace pref="84" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="txt_Fname" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -171,6 +176,8 @@
                                       <EmptySpace min="-2" pref="228" max="-2" attributes="0"/>
                                       <Component id="errDes" min="-2" pref="22" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="errShift" min="-2" pref="31" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                       <Component id="errAddr" min="-2" pref="32" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -188,7 +195,6 @@
                       <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                   <Component id="errPhoneNum" min="-2" pref="19" max="-2" attributes="0"/>
@@ -216,6 +222,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btneadd" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="btnecancel" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="jButton1" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
           </Group>
@@ -301,19 +308,69 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="jTable1">
+        <Component class="javax.swing.JTable" name="View_Emp_tbl">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="8" rowCount="4">
-                <Column editable="true" title="VendorID" type="java.lang.Object"/>
-                <Column editable="true" title="Vendor Name" type="java.lang.Object"/>
-                <Column editable="true" title="Company Name" type="java.lang.Object"/>
-                <Column editable="true" title="Location" type="java.lang.Object"/>
-                <Column editable="true" title="Contact Number" type="java.lang.Object"/>
-                <Column editable="true" title="Email" type="java.lang.Object"/>
-                <Column editable="true" title="Item Bought" type="java.lang.Object"/>
-                <Column editable="true" title="Item Quantity Bought" type="java.lang.Object"/>
+              <Table columnCount="9" rowCount="4">
+                <Column editable="false" title="Employee ID" type="java.lang.Object"/>
+                <Column editable="false" title="Employee Name" type="java.lang.Object"/>
+                <Column editable="false" title="Designation" type="java.lang.Object"/>
+                <Column editable="false" title="Postion" type="java.lang.Object"/>
+                <Column editable="false" title="DOB" type="java.lang.Object"/>
+                <Column editable="false" title="Shift" type="java.lang.Object"/>
+                <Column editable="false" title="Address" type="java.lang.Object"/>
+                <Column editable="false" title="Contact_Number" type="java.lang.Object"/>
+                <Column editable="false" title="Password" type="java.lang.Object"/>
               </Table>
+            </Property>
+            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+              <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+              </TableColumnModel>
             </Property>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
@@ -370,7 +427,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel13">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ex : dd/mm/yyyy"/>
+        <Property name="text" type="java.lang.String" value="Ex : yyyy-mm-dd"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="errPhoneNum">
@@ -454,6 +511,24 @@
           <Color blue="0" green="0" red="ff" type="rgb"/>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="errShift">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="cc" type="rgb"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="View"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

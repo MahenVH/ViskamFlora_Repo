@@ -63,7 +63,8 @@ public class Print_Hire_Invoice extends javax.swing.JFrame {
         Employee_Name = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setLocation(new java.awt.Point(650, 250));
         setMinimumSize(new java.awt.Dimension(0, 500));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N

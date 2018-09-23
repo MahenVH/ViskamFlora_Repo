@@ -9,12 +9,12 @@ package GUI;
  *
  * @author Mahen
  */
-public class CustomerGUI_Main extends javax.swing.JFrame {
+public class Customer_Admin_Main_Window extends javax.swing.JFrame {
 
     /**
-     * Creates new form CustomerGUI_Main
+     * Creates new form Admin_Login_Main_Window
      */
-    public CustomerGUI_Main() {
+    public Customer_Admin_Main_Window() {
         initComponents();
     }
 
@@ -32,89 +32,93 @@ public class CustomerGUI_Main extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocation(new java.awt.Point(650, 250));
-        setMaximumSize(new java.awt.Dimension(500, 400));
-        setMinimumSize(new java.awt.Dimension(590, 430));
-        setSize(new java.awt.Dimension(500, 400));
+        setMinimumSize(new java.awt.Dimension(1000, 550));
         getContentPane().setLayout(null);
 
-        jButton1.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
-        jButton1.setText("Add Customer");
-        jButton1.setAlignmentY(0.0F);
-        jButton1.setPreferredSize(new java.awt.Dimension(100, 35));
+        jButton1.setBackground(new java.awt.Color(102, 51, 255));
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton1.setText("Add");
+        jButton1.setMargin(new java.awt.Insets(2, 18, 18, 14));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(200, 100, 180, 40);
+        jButton1.setBounds(600, 160, 150, 50);
 
-        jButton2.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
-        jButton2.setText("Check Customer");
-        jButton2.setAlignmentY(0.0F);
-        jButton2.setPreferredSize(new java.awt.Dimension(100, 35));
+        jButton2.setBackground(new java.awt.Color(102, 51, 255));
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton2.setText("Remove");
+        jButton2.setMargin(new java.awt.Insets(2, 18, 18, 14));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(200, 160, 180, 40);
+        jButton2.setBounds(600, 230, 150, 50);
 
-        jButton3.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
-        jButton3.setText("Update Customer");
-        jButton3.setAlignmentY(0.0F);
-        jButton3.setPreferredSize(new java.awt.Dimension(100, 35));
+        jButton3.setBackground(new java.awt.Color(102, 51, 255));
+        jButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton3.setText("Check");
+        jButton3.setMargin(new java.awt.Insets(2, 18, 18, 14));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(200, 220, 180, 40);
+        jButton3.setBounds(600, 300, 150, 50);
 
-        jButton4.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
-        jButton4.setText("Remove Customer");
-        jButton4.setAlignmentY(0.0F);
-        jButton4.setPreferredSize(new java.awt.Dimension(100, 35));
+        jButton4.setBackground(new java.awt.Color(102, 51, 255));
+        jButton4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton4.setText("Update");
+        jButton4.setMargin(new java.awt.Insets(2, 18, 18, 14));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(200, 280, 180, 40);
+        jButton4.setBounds(600, 370, 150, 50);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Project_Images\\light .jpeg")); // NOI18N
-        jLabel2.setText("jLabel2");
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
+        jLabel2.setText("Customer UI");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 590, 430);
+        jLabel2.setBounds(220, 10, 300, 120);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Project_Images\\light .jpeg")); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 1230, 540);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+       Update_Customer U_C=new Update_Customer();
+        U_C.setVisible(true);
+               
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            Add_Customer AC = new Add_Customer();
-            AC.setVisible(true); 
+       Add_Customer A_C=new Add_Customer();
+        A_C.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       Check_Customer CC = new Check_Customer();
-       CC.setVisible(true);
+        Remove_Customer R_C= new Remove_Customer();
+        R_C.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Update_Customer UC = new Update_Customer();
-        UC.setVisible(true);
+        Check_Customer C_C=new Check_Customer();
+        C_C.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        Remove_Customer RC = new Remove_Customer();
-        RC.setVisible(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -133,20 +137,23 @@ public class CustomerGUI_Main extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CustomerGUI_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Customer_Admin_Main_Window.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CustomerGUI_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Customer_Admin_Main_Window.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CustomerGUI_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Customer_Admin_Main_Window.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CustomerGUI_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Customer_Admin_Main_Window.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CustomerGUI_Main().setVisible(true);
+                new Customer_Admin_Main_Window().setVisible(true);
             }
         });
     }
@@ -156,6 +163,7 @@ public class CustomerGUI_Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
