@@ -57,7 +57,7 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
         jButton2.setText("Employee");
         jButton2.setMargin(new java.awt.Insets(2, 18, 18, 14));
         getContentPane().add(jButton2);
-        jButton2.setBounds(50, 220, 260, 53);
+        jButton2.setBounds(50, 220, 260, 45);
 
         jButton3.setBackground(new java.awt.Color(102, 51, 255));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -69,14 +69,19 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(620, 130, 260, 53);
+        jButton3.setBounds(620, 130, 260, 45);
 
         jButton4.setBackground(new java.awt.Color(102, 51, 255));
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton4.setText("Vendor");
         jButton4.setMargin(new java.awt.Insets(2, 18, 18, 14));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton4);
-        jButton4.setBounds(620, 210, 260, 53);
+        jButton4.setBounds(620, 210, 260, 45);
 
         jButton5.setBackground(new java.awt.Color(102, 51, 255));
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -88,22 +93,20 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5);
-        jButton5.setBounds(620, 310, 260, 53);
+        jButton5.setBounds(620, 310, 260, 45);
 
         jButton6.setBackground(new java.awt.Color(102, 51, 255));
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton6.setText("Report");
         jButton6.setMargin(new java.awt.Insets(2, 18, 18, 14));
         getContentPane().add(jButton6);
-        jButton6.setBounds(60, 320, 260, 53);
+        jButton6.setBounds(60, 320, 260, 45);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
         jLabel2.setText("STRICLY : ADMIN ACCESS ONLY");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(40, 500, 280, 17);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Project_Images\\WhatsApp Image 2018-09-09 at 11.06.24 PM(1).jpeg")); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(4, 0, 1230, 540);
 
@@ -123,6 +126,13 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
         Print_Hire_Invoice PHI = new Print_Hire_Invoice();
         PHI.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        
+        Vendor_Admin_Main_Window Vmain= new Vendor_Admin_Main_Window();
+        Vmain.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
