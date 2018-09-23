@@ -8,9 +8,11 @@ package GUI;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -67,6 +69,7 @@ public class AddVendor extends javax.swing.JFrame {
         }
     }
     
+    ResultSet rs;
 
     /**
      * Creates new form AddVendor
@@ -106,7 +109,7 @@ public class AddVendor extends javax.swing.JFrame {
         txtvaddname = new javax.swing.JTextField();
         txtaddcompany = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        vendortable = new javax.swing.JTable();
         txtaddlocation = new javax.swing.JTextField();
         txtaddvtp = new javax.swing.JTextField();
         txtvaddemail = new javax.swing.JTextField();
@@ -117,6 +120,7 @@ public class AddVendor extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         txtvquantity = new javax.swing.JTextField();
+        btnview = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -142,7 +146,7 @@ public class AddVendor extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        vendortable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -153,7 +157,7 @@ public class AddVendor extends javax.swing.JFrame {
                 "VendorID", "Vendor Name", "Company Name", "Location", "Contact Number", "Email", "Item Bought", "Item Quantity Bought"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(vendortable);
 
         txtaddlocation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,6 +192,13 @@ public class AddVendor extends javax.swing.JFrame {
 
         jLabel8.setText("Quantity");
 
+        btnview.setText("View");
+        btnview.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnviewActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -208,7 +219,9 @@ public class AddVendor extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnvadd)
                         .addGap(53, 53, 53)
-                        .addComponent(btnvcancel))
+                        .addComponent(btnvcancel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnview))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtaddvid)
@@ -239,17 +252,11 @@ public class AddVendor extends javax.swing.JFrame {
                         .addGap(35, 35, 35)
                         .addComponent(txtaddvtp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtvaddemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
+                        .addComponent(txtvaddemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtiaddtype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
+                        .addComponent(txtiaddtype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtvquantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8)))
+                        .addComponent(txtvquantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(37, 37, 37)
@@ -259,12 +266,23 @@ public class AddVendor extends javax.swing.JFrame {
                         .addGap(45, 45, 45)
                         .addComponent(jLabel4)
                         .addGap(43, 43, 43)
-                        .addComponent(jLabel5))
+                        .addComponent(jLabel5)
+                        .addGap(37, 37, 37)
+                        .addComponent(jLabel6)
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel8))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnvadd)
-                    .addComponent(btnvcancel))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnvadd)
+                            .addComponent(btnvcancel)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnview)))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
@@ -342,6 +360,33 @@ public class AddVendor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtaddlocationActionPerformed
 
+    private void btnviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewActionPerformed
+        // TODO add your handling code here:
+        try {
+            Connection con=DriverManager.getConnection(url, user, pass);
+            PreparedStatement pst;
+            pst=con.prepareStatement("select * from Vendor_Details");
+            rs=pst.executeQuery();
+            DefaultTableModel tm=(DefaultTableModel)vendortable.getModel();
+            tm.setRowCount(0);
+
+            while (rs.next()) {
+                Object o[]={rs.getString("Vendor_ID"),
+                    rs.getString("Vendor_Name"),
+                    rs.getString("Comapny_Name"),
+                    rs.getString("Location"),
+                    rs.getInt("Contact_Number"),
+                    rs.getString("Email"),
+                    rs.getString("Item_Bought"),
+                    rs.getInt("Item_Quantity_Bought")};
+                tm.addRow(o);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_btnviewActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -380,6 +425,7 @@ public class AddVendor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnvadd;
     private javax.swing.JButton btnvcancel;
+    private javax.swing.JButton btnview;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -389,7 +435,6 @@ public class AddVendor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtaddcompany;
     private javax.swing.JTextField txtaddlocation;
     private javax.swing.JTextField txtaddvid;
@@ -398,5 +443,6 @@ public class AddVendor extends javax.swing.JFrame {
     private javax.swing.JTextField txtvaddemail;
     private javax.swing.JTextField txtvaddname;
     private javax.swing.JTextField txtvquantity;
+    private javax.swing.JTable vendortable;
     // End of variables declaration//GEN-END:variables
 }
