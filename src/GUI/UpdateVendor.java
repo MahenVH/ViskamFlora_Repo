@@ -335,9 +335,6 @@ public class UpdateVendor extends javax.swing.JFrame {
            
             String sql="select * from Vendor_Details where Vendor_Name=?";
 
-            
-            
-
             pst=con.prepareStatement(sql);
             pst.setString(1, txtvsearch.getText());
             

@@ -192,7 +192,7 @@ public class AddVendor extends javax.swing.JFrame {
 
         jLabel8.setText("Quantity");
 
-        btnview.setText("View");
+        btnview.setText("View All");
         btnview.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnviewActionPerformed(evt);
