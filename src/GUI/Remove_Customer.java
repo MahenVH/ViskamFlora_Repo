@@ -90,7 +90,8 @@ public class Remove_Customer extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btnview = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setLocation(new java.awt.Point(650, 250));
 
         jLabel3.setText("Customer LName");
 
