@@ -446,18 +446,19 @@ public class AddEmployee extends javax.swing.JFrame {
            Class.forName(driver);
            Connection con=DriverManager.getConnection(url, user, pass);
            String sql= "Insert into Employee_Details"
-                   +"(Employee_ID,Employee_Name,Designation,Position,DOB,Shift,Address,Contact_Number,Password)"
-                   +"Values(?,?,?,?,?,?,?,?,?)";
+                   +"(Employee_Name,Designation,Position,DOB,Shift,Address,Contact_Number,Password)"
+                   +"Values(?,?,?,?,?,?,?,?)";
            PreparedStatement pst= con.prepareStatement(sql);
            pst.setString(1,txt_Fname.getText());
            pst.setString(2,txt_Lname .getText());
            pst.setString(3,txt_Designation.getText());
            String Position;
             Position=cmbposition.getSelectedItem().toString();
-           pst.setString(4,txt_dob.getText());
-           pst.setString(5,txt_Shift.getText());
-           pst.setString(6,txt_Address.getText());
-           pst.setString(7,txtpassword.getText());
+            pst.setString(4,Position);
+           pst.setString(5,txt_dob.getText());
+           pst.setString(6,txt_Shift.getText());
+           pst.setString(7,txt_Address.getText());
+           pst.setString(8,txtpassword.getText());
            
            pst.executeUpdate();
            JOptionPane.showMessageDialog(this, "Added successfully to the database");
