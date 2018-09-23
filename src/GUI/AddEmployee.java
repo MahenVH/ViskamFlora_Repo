@@ -450,14 +450,15 @@ public class AddEmployee extends javax.swing.JFrame {
                    +"Values(?,?,?,?,?,?,?,?)";
            PreparedStatement pst= con.prepareStatement(sql);
            pst.setString(1,txt_Fname.getText());
-           pst.setString(2,txt_Lname .getText());
-           pst.setString(3,txt_Designation.getText());
+           pst.setString(2,txt_Designation .getText());
            String Position;
             Position=cmbposition.getSelectedItem().toString();
-            pst.setString(4,Position);
-           pst.setString(5,txt_dob.getText());
-           pst.setString(6,txt_Shift.getText());
-           pst.setString(7,txt_Address.getText());
+            pst.setString(3,Position);
+           pst.setString(4,txt_dob.getText());
+           
+           pst.setString(5,txt_Shift.getText());
+           pst.setString(6,txt_Address.getText());
+           pst.setString(7,txt_Phone.getText());
            pst.setString(8,txtpassword.getText());
            
            pst.executeUpdate();
@@ -611,7 +612,7 @@ public class AddEmployee extends javax.swing.JFrame {
    try {
        Connection con=DriverManager.getConnection(url,user, pass);
        PreparedStatement pst;
-       pst= con.prepareStatement("select * from Employee_Detalis");
+       pst= con.prepareStatement("select * from Employee_Details");
        ResultSet rs=pst.executeQuery();
        DefaultTableModel tm=(DefaultTableModel)View_Emp_tbl.getModel();
        tm.setRowCount(0);
@@ -622,10 +623,10 @@ public class AddEmployee extends javax.swing.JFrame {
                rs.getString("Designation"),
                rs.getString("Position"),
                rs.getDate("DOB"),
-               rs.getTime("Shift"),
+               rs.getString("Shift"),
                rs.getString("Address"),
-               rs.getInt("Contact_Number"),
-               rs.getString("Password"),};
+               rs.getString("Contact_Number"),
+               rs.getString("Password")};
              tm.addRow(o);
            
        }
