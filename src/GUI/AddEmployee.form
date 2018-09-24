@@ -57,27 +57,25 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jButton1" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                          <Component id="errPhoneNum" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="errPhoneNum" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="txt_Shift" min="-2" pref="290" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="cmbposition" pref="290" max="32767" attributes="0"/>
+                          <Component id="txt_Fname" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txt_Lname" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txt_Designation" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txt_dob" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txt_Address" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txt_Phone" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtpassword" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtpasswordconfirm" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="txt_Shift" min="-2" pref="290" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="cmbposition" pref="290" max="32767" attributes="0"/>
-                              <Component id="txt_Fname" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_Lname" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_Designation" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_dob" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_Address" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_Phone" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtpassword" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtpasswordconfirm" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="jLabel13" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jLabel13" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -284,17 +282,33 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_FnameActionPerformed"/>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_FnameKeyPressed"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_FnameKeyReleased"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_Lname">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_LnameKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_Designation">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_DesignationKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_dob">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_dobKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_Shift">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_ShiftKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_Address">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_AddressKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_Phone">
       <Events>
@@ -414,10 +428,15 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JPasswordField" name="txtpassword">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtpasswordKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="txtpasswordconfirm">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtpasswordconfirmActionPerformed"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtpasswordconfirmKeyReleased"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtpasswordconfirmKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel12">

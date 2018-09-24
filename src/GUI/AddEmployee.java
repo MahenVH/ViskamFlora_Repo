@@ -178,6 +178,39 @@ public class AddEmployee extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_FnameKeyPressed(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_FnameKeyReleased(evt);
+            }
+        });
+
+        txt_Lname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_LnameKeyReleased(evt);
+            }
+        });
+
+        txt_Designation.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_DesignationKeyReleased(evt);
+            }
+        });
+
+        txt_dob.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_dobKeyReleased(evt);
+            }
+        });
+
+        txt_Shift.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_ShiftKeyReleased(evt);
+            }
+        });
+
+        txt_Address.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_AddressKeyReleased(evt);
+            }
         });
 
         txt_Phone.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -228,9 +261,23 @@ public class AddEmployee extends javax.swing.JFrame {
 
         cmbposition.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Manager/Owner", "Regular Employee" }));
 
+        txtpassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtpasswordKeyReleased(evt);
+            }
+        });
+
         txtpasswordconfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtpasswordconfirmActionPerformed(evt);
+            }
+        });
+        txtpasswordconfirm.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtpasswordconfirmKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtpasswordconfirmKeyTyped(evt);
             }
         });
 
@@ -304,24 +351,23 @@ public class AddEmployee extends javax.swing.JFrame {
                         .addComponent(btnecancel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel12)
-                            .addGap(27, 27, 27)
-                            .addComponent(errPhoneNum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txt_Shift, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(cmbposition, 0, 290, Short.MAX_VALUE)
-                                .addComponent(txt_Fname)
-                                .addComponent(txt_Lname)
-                                .addComponent(txt_Designation)
-                                .addComponent(txt_dob)
-                                .addComponent(txt_Address)
-                                .addComponent(txt_Phone)
-                                .addComponent(txtpassword)
-                                .addComponent(txtpasswordconfirm))
-                            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addGap(27, 27, 27)
+                        .addComponent(errPhoneNum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(txt_Shift, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cmbposition, 0, 290, Short.MAX_VALUE)
+                            .addComponent(txt_Fname)
+                            .addComponent(txt_Lname)
+                            .addComponent(txt_Designation)
+                            .addComponent(txt_dob)
+                            .addComponent(txt_Address)
+                            .addComponent(txt_Phone)
+                            .addComponent(txtpassword)
+                            .addComponent(txtpasswordconfirm))
+                        .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -470,98 +516,12 @@ public class AddEmployee extends javax.swing.JFrame {
          }
         
         
-        String fname=txt_Fname.getText().toString();
-        String lname=txt_Lname.getText().toString();
-        String designation=txt_Designation.getText().toString();
-        String dob=txt_dob.getText().toString();
-        String Shift=txt_Shift.getText().toString();
-        String phone=txt_Phone.getText().toString();
-        String address=txt_Address.getText().toString();
-        String password=txtpassword.getText().toString();
-        String passwordconfirm=txtpasswordconfirm.getText().toString();
-        
-        if(fname.equals("")){
-            errFname.setText("X");
-        }
-        else{
-            errFname.setText("");
-        }
-        
-        if(lname.equals("")){
-            errLname.setText("X");
-        }
-         else{
-            errLname.setText("");
-        }
-        
-        if(designation.equals("")){
-            errDes.setText("X");
-        }
-         else{
-            errDes.setText("");
-        }
-        
-        if(dob.equals("")){
-            errDob.setText("X");
-        }
-         else{
-            errDob.setText("");
-        }
-        
-        if(address.equals("")){
-            errAddr.setText("X");
-        }
-         else{
-            errAddr.setText("");
-        }
         
         
-        
-        if(password.equals("")){
-            errpw.setText("X");
-        }
-         else{
-            errpw.setText("");
-        }
-        
-        if(passwordconfirm.equals(txtpassword.getText())){
-            errCpw.setText("");
-        }
-         else{
-            errCpw.setText("X");
-        }
-        
-        if(Shift.equals("")){
-            errShift.setText("X");
-        }
-         else{
-            errShift.setText("");
-        }
-        
-        
-        Pattern p = Pattern.compile("\\d{3}-\\d{7}");
-        Matcher m = p.matcher(txt_Phone.getText());
-        if(m.matches())
-        {
-            errCon.setText("");
-        }
-        else
-       {
-            errCon.setText("X");
-       }
-        
-        
-        Pattern b = Pattern.compile("\\d{4}-[01]\\d-[0-3]\\d");
-        Matcher ma = b.matcher(txt_dob.getText());
-        if(ma.matches())
-        {
-            errDob.setText("");
-         }
-        else
-       {
-            errDob.setText("X");
-       }
-        
+
+
+
+
         
         
         
@@ -600,7 +560,21 @@ public class AddEmployee extends javax.swing.JFrame {
 
     private void txt_PhoneKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_PhoneKeyReleased
         // TODO add your handling code here:
+      //validation phone
       
+        String phone=txt_Phone.getText().toString();
+        Pattern p = Pattern.compile("\\d{3}-\\d{7}");
+        Matcher m = p.matcher(txt_Phone.getText());
+        if(m.matches())
+        {
+            errCon.setText("");
+        }
+        else
+       {
+            errCon.setText("X");
+       }
+        
+        
         
         
     }//GEN-LAST:event_txt_PhoneKeyReleased
@@ -637,6 +611,129 @@ public class AddEmployee extends javax.swing.JFrame {
        
    }     
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtpasswordconfirmKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpasswordconfirmKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtpasswordconfirmKeyTyped
+
+    private void txt_FnameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_FnameKeyReleased
+        // TODO add your handling code here:
+        
+        //validate name
+                String fname=txt_Fname.getText().toString();
+        if(fname.equals("")){
+            errFname.setText("X");
+        }
+        else{
+            errFname.setText("");
+        }
+        
+    }//GEN-LAST:event_txt_FnameKeyReleased
+
+    private void txt_LnameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_LnameKeyReleased
+        // TODO add your handling code here:
+        //validate l name
+        String lname=txt_Lname.getText().toString();
+        if(lname.equals("")){
+            errLname.setText("X");
+        }
+         else{
+            errLname.setText("");
+        }
+    }//GEN-LAST:event_txt_LnameKeyReleased
+
+    private void txt_DesignationKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_DesignationKeyReleased
+        // TODO add your handling code here:
+        //designation validate
+                 String designation=txt_Designation.getText().toString();       
+        if(designation.equals("")){
+            errDes.setText("X");
+        }
+         else{
+            errDes.setText("");
+        }
+        
+    }//GEN-LAST:event_txt_DesignationKeyReleased
+
+    private void txt_dobKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_dobKeyReleased
+        // TODO add your handling code here:
+        //validate dob
+                String dob=txt_dob.getText().toString();
+        if(dob.equals("")){
+            errDob.setText("X");
+        }
+         else{
+            errDob.setText("");
+        }
+                Pattern b = Pattern.compile("\\d{4}-[01]\\d-[0-3]\\d");
+        Matcher ma = b.matcher(txt_dob.getText());
+        if(ma.matches())
+        {
+            errDob.setText("");
+         }
+        else
+       {
+            errDob.setText("X");
+       }
+        
+        
+    }//GEN-LAST:event_txt_dobKeyReleased
+
+    private void txt_AddressKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_AddressKeyReleased
+        // TODO add your handling code here:
+        //address validation
+                        String address=txt_Address.getText().toString();
+        if(address.equals("")){
+            errAddr.setText("X");
+        }
+         else{
+            errAddr.setText("");
+        }
+ 
+    }//GEN-LAST:event_txt_AddressKeyReleased
+
+    private void txtpasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpasswordKeyReleased
+        // TODO add your handling code here:
+        //pw validation
+                  String password=txtpassword.getText().toString();   
+        if(password.equals("")){
+            errpw.setText("X");
+        }
+         else{
+            errpw.setText("");
+        }
+        
+    }//GEN-LAST:event_txtpasswordKeyReleased
+
+    private void txtpasswordconfirmKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpasswordconfirmKeyReleased
+        // TODO add your handling code here:
+        //comfirm pw validation
+                
+        String passwordconfirm=txtpasswordconfirm.getText().toString();
+        if(passwordconfirm.equals(txtpassword.getText())){
+            errCpw.setText("");
+        }
+         else{
+            errCpw.setText("X");
+        }
+        
+    }//GEN-LAST:event_txtpasswordconfirmKeyReleased
+
+    private void txt_ShiftKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_ShiftKeyReleased
+        // TODO add your handling code here:
+        //shift validation        
+
+        String Shift=txt_Shift.getText().toString();
+       
+
+        if(Shift.equals("")){
+            errShift.setText("X");
+        }
+         else{
+            errShift.setText("");
+        }
+        
+    }//GEN-LAST:event_txt_ShiftKeyReleased
 
     /**
      * @param args the command line arguments
