@@ -201,14 +201,14 @@ public class Remove_Employee extends javax.swing.JFrame {
         {
 
         
-         Object o[]={rs.getInt("Employee ID"),
-               rs.getString("Employee Name"),
+         Object o[]={rs.getInt("Employee_ID"),
+               rs.getString("Employee_Name"),
                rs.getString("Designation"),
                rs.getString("Position"),
                rs.getDate("DOB"),
                rs.getString("Shift"),
                rs.getString("Address"),
-               rs.getString("Contact Number"),
+               rs.getString("Contact_Number"),
                };
         
                 
