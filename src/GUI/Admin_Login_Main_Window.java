@@ -5,6 +5,17 @@
  */
 package GUI;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
+
 /**
  *
  * @author Mahen
@@ -17,6 +28,12 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
     public Admin_Login_Main_Window() {
         initComponents();
     }
+    
+     
+    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
+    String user="mahen123";
+    String pass="1234";
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -57,7 +74,7 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
         jButton2.setText("Employee");
         jButton2.setMargin(new java.awt.Insets(2, 18, 18, 14));
         getContentPane().add(jButton2);
-        jButton2.setBounds(50, 220, 260, 45);
+        jButton2.setBounds(50, 220, 260, 53);
 
         jButton3.setBackground(new java.awt.Color(102, 51, 255));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -69,7 +86,7 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(620, 130, 260, 45);
+        jButton3.setBounds(620, 130, 260, 53);
 
         jButton4.setBackground(new java.awt.Color(102, 51, 255));
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -81,7 +98,7 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(620, 210, 260, 45);
+        jButton4.setBounds(620, 210, 260, 53);
 
         jButton5.setBackground(new java.awt.Color(102, 51, 255));
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -93,14 +110,19 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5);
-        jButton5.setBounds(620, 310, 260, 45);
+        jButton5.setBounds(620, 310, 260, 53);
 
         jButton6.setBackground(new java.awt.Color(102, 51, 255));
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton6.setText("Report");
         jButton6.setMargin(new java.awt.Insets(2, 18, 18, 14));
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton6);
-        jButton6.setBounds(60, 320, 260, 45);
+        jButton6.setBounds(60, 320, 260, 53);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
@@ -133,6 +155,27 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
         Vendor_Admin_Main_Window Vmain= new Vendor_Admin_Main_Window();
         Vmain.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    try{
+        Class.forName(driver);
+        Connection con= DriverManager.getConnection(url, user, pass);
+        ResultSet rs=null;
+        PreparedStatement pst=null;
+        String Report="D:\\ViskamFloraAPP_Clone1\\ViskamFlora_Repo\\build\\classes\\Code\\report2.jrxml";
+        JasperReport jr= JasperCompileManager.compileReport(Report);
+        JasperPrint jp=JasperFillManager.fillReport(jr,null,con);
+        JasperViewer.viewReport(jp);
+    }
+    
+    catch(Exception e)
+    {
+        JOptionPane.showMessageDialog(this, e.getMessage());
+    }
+            
+        
+        
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
