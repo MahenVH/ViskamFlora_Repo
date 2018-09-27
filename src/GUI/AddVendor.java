@@ -122,7 +122,7 @@ public class AddVendor extends javax.swing.JFrame {
         txtvquantity = new javax.swing.JTextField();
         btnview = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel2.setText("Vendor Name");
 

@@ -160,7 +160,7 @@ public class UpdateVendor extends javax.swing.JFrame {
         txtvsearch = new javax.swing.JTextField();
         btnview = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         btnvupdate.setText("Update");
         btnvupdate.addActionListener(new java.awt.event.ActionListener() {
