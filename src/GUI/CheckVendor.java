@@ -46,7 +46,7 @@ public class CheckVendor extends javax.swing.JFrame {
         txtsearch = new javax.swing.JTextField();
         btnsearch = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         vendortable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

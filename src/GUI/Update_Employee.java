@@ -104,7 +104,7 @@ public class Update_Employee extends javax.swing.JFrame {
         errdob = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jButton1.setText("Search");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

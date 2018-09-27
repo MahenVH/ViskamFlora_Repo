@@ -35,7 +35,7 @@ public class Vendor_Admin_Main_Window extends javax.swing.JFrame {
         btnmainupdatev = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         btnmainaddv.setText("Add");
         btnmainaddv.addActionListener(new java.awt.event.ActionListener() {
