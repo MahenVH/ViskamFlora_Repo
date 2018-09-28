@@ -1,29 +1,233 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD JasperReport//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
-
-<jasperReport name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
-    <background>
-        <band/>
-    </background>
-    <title>
-        <band height="79"/>
-    </title>
-    <pageHeader>
-        <band height="35"/>
-    </pageHeader>
-    <columnHeader>
-        <band height="61"/>
-    </columnHeader>
-    <detail>
-        <band height="125"/>
-    </detail>
-    <columnFooter>
-        <band height="45"/>
-    </columnFooter>
-    <pageFooter>
-        <band height="54"/>
-    </pageFooter>
-    <summary>
-        <band height="42"/>
-    </summary>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="NewReport" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a8fc115a-df52-41ce-b0ec-50f8219f5926">
+	<queryString language="SQL">
+		<![CDATA[select * from Hire_Invoice_Details]]>
+	</queryString>
+	<field name="Hire_ID" class="java.lang.Integer"/>
+	<field name="Customer_Name" class="java.lang.String"/>
+	<field name="Item_Name" class="java.lang.String"/>
+	<field name="Quantity" class="java.lang.String"/>
+	<field name="Date" class="java.lang.String"/>
+	<field name="Deposit" class="java.lang.Integer"/>
+	<field name="Amount_to_be_paid" class="java.lang.Integer"/>
+	<field name="Employee_Name" class="java.lang.String"/>
+	<group name="Hire_ID">
+		<groupExpression><![CDATA[$F{Hire_ID}]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#666666" backcolor="#E6E6E6" uuid="4b3465f8-0be1-44e0-a4b2-607f2b16748c"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Hire_ID]]></text>
+				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="100" y="0" width="455" height="32" forecolor="#006699" backcolor="#E6E6E6" uuid="ac2eaa9c-eba7-4f1a-be27-d6a3ebf9dbcb"/>
+					<textElement>
+						<font size="24" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Hire_ID}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="5a16a104-3afd-4786-884b-b685f10a0215"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Customer_Name">
+		<groupExpression><![CDATA[$F{Customer_Name}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="100" y="0" width="455" height="32" forecolor="#006699" uuid="5a6d84bb-3b2d-41fc-99cc-91dfd34b259b"/>
+					<textElement>
+						<font size="22" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Customer_Name}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="3a42306e-9f35-4a55-844e-778b1309f393"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Customer_Name]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Item_Name">
+		<groupExpression><![CDATA[$F{Item_Name}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="100" y="0" width="455" height="32" forecolor="#006699" uuid="e49d8c4b-e481-4966-b4f8-1c9dde025331"/>
+					<textElement>
+						<font size="20" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Item_Name}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="3b54e7bc-b99b-4c46-b5c9-0c5df90d1366"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Item_Name]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Date">
+		<groupExpression><![CDATA[$F{Date}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="100" y="0" width="455" height="32" forecolor="#006699" uuid="020c2faa-ab3f-473b-9119-bbacb5ea2916"/>
+					<textElement>
+						<font size="16" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Date}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="6e0f1096-d214-4882-82c7-3cd6d09d5e62"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Date]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="b5b79e20-2e7f-46db-bcdb-cf9b825f1de4"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="b2c46ef4-fa2c-4618-91b7-a01d616330e0"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TITLE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="a6cb3278-d623-41ce-9f04-4767cfeb7dca"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Add a description here]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="952822a0-1a62-4d7f-816f-9de57070a608"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="16198fb2-431c-45d4-b4ba-d0fe46a43f25"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quantity]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="138" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="0bcdb253-77f8-47e3-a47a-b580def75297"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Deposit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="276" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="a5085962-867d-4564-a00e-5a3c2ba18280"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amount_to_be_paid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="414" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="e3f8f6d5-2a0c-4155-b5c4-6723bce907d6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Employee_Name]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="74c6222f-e320-4c30-9320-b9253ad6d4be"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="138" height="20" uuid="21fa7fd9-d66e-4afd-a296-9f184dcef5bf"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Quantity}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="138" y="0" width="138" height="20" uuid="0168a55f-3c9c-4840-b9d0-30007b917e4a"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Deposit}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="276" y="0" width="138" height="20" uuid="bad75ca6-9bd4-4636-844f-842846f403c0"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Amount_to_be_paid}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="414" y="0" width="138" height="20" uuid="106fd014-8beb-4876-b0ee-c11e9a2f53a4"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Employee_Name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="a2a79e93-e432-43e1-aca5-c9748d7c4ee9"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="5f52b60a-109f-49bf-925b-d70807fa622b"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="99a198c0-2d1a-4cb7-aad2-4c1454e2cf30"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
 </jasperReport>

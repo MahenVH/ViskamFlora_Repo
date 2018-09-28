@@ -199,7 +199,7 @@ public class Add_Customer extends javax.swing.JFrame {
         /*Validating Telephone Number*/
         /*{3} and {7} are lengths */
         String Telephone = txtTelNo.getText();
-        int Telephone_Pattern= Telephone.length();
+        String Telephone_Pattern= "\\d{3}-\\d{7}";
         
         /*Validating date*/
         /*
@@ -214,7 +214,7 @@ public class Add_Customer extends javax.swing.JFrame {
                 /*&&(Telephone.matches(Telephone_Pattern))*/
                 && (Fname_Pattern >1) 
                 && (Lname_Pattern >1) 
-                &&(Telephone_Pattern>=10))
+                &&(Telephone.matches(Telephone_Pattern)))
             /*&& (Date.matches(Date_Pattern)))*/
         { 
         

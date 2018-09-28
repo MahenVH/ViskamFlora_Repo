@@ -5,16 +5,21 @@
  */
 package GUI;
 
+
+import java.io.File;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.util.HashMap;
+
 import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.swing.JRViewer;
 import net.sf.jasperreports.view.JasperViewer;
+
 
 /**
  *
@@ -49,6 +54,7 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
         jButton6 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -111,6 +117,8 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
         });
         getContentPane().add(jButton5);
         jButton5.setBounds(620, 310, 260, 53);
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(60, 390, 830, 220);
 
         jButton6.setBackground(new java.awt.Color(102, 51, 255));
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -128,7 +136,7 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
         jLabel2.setText("STRICLY : ADMIN ACCESS ONLY");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(40, 500, 280, 17);
+        jLabel2.setBounds(50, 630, 280, 17);
         getContentPane().add(jLabel1);
         jLabel1.setBounds(4, 0, 1230, 540);
 
@@ -160,12 +168,23 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
     try{
         Class.forName(driver);
         Connection con= DriverManager.getConnection(url, user, pass);
-        ResultSet rs=null;
-        PreparedStatement pst=null;
-        String Report="D:\\ViskamFloraAPP_Clone1\\ViskamFlora_Repo\\build\\classes\\Code\\report2.jrxml";
-        JasperReport jr= JasperCompileManager.compileReport(Report);
-        JasperPrint jp=JasperFillManager.fillReport(jr,null,con);
+        
+        
+        String Reportpath="‪‪D:\\ViskamFloraAPP_Clone1\\ViskamFlora_Repo\\newReport.jrxml";
+        JasperReport jr=JasperCompileManager.compileReport(Reportpath);
+        File Reportfile=new File(Reportpath);
+        JasperPrint jp=JasperFillManager.fillReport(jr, null,con);
         JasperViewer.viewReport(jp);
+       
+        
+        /*
+        String Reportpath="‪D:\\Report\\report2.jrxml";
+        JasperReport jr= JasperCompileManager.compileReport(Reportpath);
+        JasperPrint jp=JasperFillManager.fillReport(jr,null,con);
+        
+        JasperViewer.viewReport(jp);
+        con.close();
+        */
     }
     
     catch(Exception e)
@@ -221,5 +240,6 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
