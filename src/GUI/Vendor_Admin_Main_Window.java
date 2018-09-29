@@ -5,7 +5,17 @@
  */
 package GUI;
 
+import static java.lang.Class.forName;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -19,6 +29,10 @@ public class Vendor_Admin_Main_Window extends javax.swing.JFrame {
     public Vendor_Admin_Main_Window() {
         initComponents();
     }
+    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
+    String user="purnima";
+    String pass="1234";
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,6 +48,7 @@ public class Vendor_Admin_Main_Window extends javax.swing.JFrame {
         btnmaincheckv = new javax.swing.JButton();
         btnmainupdatev = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        btnvreport = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -68,23 +83,31 @@ public class Vendor_Admin_Main_Window extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         jLabel2.setText("Vendor UI");
 
+        btnvreport.setText("Report");
+        btnvreport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnvreportActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(159, 159, 159)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(625, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnvreport, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnmainupdatev, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(btnmaincheckv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnmainremovev, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
                         .addComponent(btnmainaddv, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(61, 61, 61))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(159, 159, 159)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(625, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,7 +122,9 @@ public class Vendor_Admin_Main_Window extends javax.swing.JFrame {
                 .addComponent(btnmaincheckv, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(btnmainupdatev, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(161, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(btnvreport, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         pack();
@@ -133,6 +158,26 @@ public class Vendor_Admin_Main_Window extends javax.swing.JFrame {
         UpdateVendor UV=new UpdateVendor();
         UV.setVisible(true);
     }//GEN-LAST:event_btnmainupdatevActionPerformed
+
+    private void btnvreportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvreportActionPerformed
+        // TODO add your handling code here:
+        
+        try 
+        {
+            Class.forName(driver);
+            Connection con=DriverManager.getConnection(url, user, pass);
+            String report="D:\\Viskam_Flora_Java_Project\\ViskamFlora_Repo\\src\\GUI\\VendorReport1.jrxml";
+            JasperReport jr= JasperCompileManager.compileReport(report);
+            JasperPrint jp=JasperFillManager.fillReport(jr, null,con);
+            JasperViewer.viewReport(jp);
+        } 
+        
+        catch (Exception e) 
+        {
+            JOptionPane.showMessageDialog(this, e);
+        
+        }
+    }//GEN-LAST:event_btnvreportActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,6 +219,7 @@ public class Vendor_Admin_Main_Window extends javax.swing.JFrame {
     private javax.swing.JButton btnmaincheckv;
     private javax.swing.JButton btnmainremovev;
     private javax.swing.JButton btnmainupdatev;
+    private javax.swing.JButton btnvreport;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
