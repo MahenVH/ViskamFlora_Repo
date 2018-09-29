@@ -6,11 +6,12 @@
 package GUI;
 
 
+
 import java.io.File;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.HashMap;
+
 
 import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -18,6 +19,7 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.swing.JRViewer;
+
 import net.sf.jasperreports.view.JasperViewer;
 
 
@@ -166,25 +168,19 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
     try{
+        /*database connection*/
         Class.forName(driver);
         Connection con= DriverManager.getConnection(url, user, pass);
         
-        
-        String Reportpath="‪‪D:\\ViskamFloraAPP_Clone1\\ViskamFlora_Repo\\newReport.jrxml";
+        /*calling jasper report to java*/
+        String Reportpath="D:\\ViskamFloraAPP_Clone1\\ViskamFlora_Repo\\src\\ReportNew1.jrxml";
         JasperReport jr=JasperCompileManager.compileReport(Reportpath);
-        File Reportfile=new File(Reportpath);
         JasperPrint jp=JasperFillManager.fillReport(jr, null,con);
         JasperViewer.viewReport(jp);
-       
         
-        /*
-        String Reportpath="‪D:\\Report\\report2.jrxml";
-        JasperReport jr= JasperCompileManager.compileReport(Reportpath);
-        JasperPrint jp=JasperFillManager.fillReport(jr,null,con);
         
-        JasperViewer.viewReport(jp);
         con.close();
-        */
+        
     }
     
     catch(Exception e)
