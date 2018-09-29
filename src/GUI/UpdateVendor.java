@@ -170,6 +170,11 @@ public class UpdateVendor extends javax.swing.JFrame {
         });
 
         btnvcancel.setText("Cancel");
+        btnvcancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnvcancelActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Item Type Bought");
 
@@ -227,11 +232,11 @@ public class UpdateVendor extends javax.swing.JFrame {
                         .addContainerGap(1334, Short.MAX_VALUE)
                         .addComponent(btnview))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(56, 56, 56)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel8)
-                                .addGap(77, 77, 77)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(btnvupdate)
@@ -297,9 +302,9 @@ public class UpdateVendor extends javax.swing.JFrame {
                             .addComponent(jLabel7)
                             .addComponent(txtitype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(txtvquantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtvquantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
                         .addGap(64, 64, 64)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnvupdate)
@@ -438,6 +443,17 @@ public class UpdateVendor extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnvupdateActionPerformed
+
+    private void btnvcancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvcancelActionPerformed
+        // TODO add your handling code here:
+        txtvname.setText("");
+        txtcompany.setText("");
+        txtlocation.setText("");
+        txtvtp.setText("");
+        txtvemail.setText("");
+        txtitype.setText("");
+        txtvquantity.setText("");
+    }//GEN-LAST:event_btnvcancelActionPerformed
 
     /**
      * @param args the command line arguments
