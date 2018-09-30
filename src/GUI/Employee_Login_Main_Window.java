@@ -87,7 +87,8 @@ public class Employee_Login_Main_Window extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+         Item_Main_Window IMW=new Item_Main_Window();
+        IMW.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -96,8 +97,8 @@ public class Employee_Login_Main_Window extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        Print_Hire_Invoice PHI = new Print_Hire_Invoice();
-        PHI.setVisible(true);
+       Hire_Item_Main_Window HM=new Hire_Item_Main_Window();
+       HM.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
