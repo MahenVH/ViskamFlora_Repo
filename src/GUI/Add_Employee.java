@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Purnima
  */
-public class AddEmployee extends javax.swing.JFrame {
+public class Add_Employee extends javax.swing.JFrame {
 
     /**
      * Creates new form AddEmployee
@@ -71,7 +71,7 @@ public class AddEmployee extends javax.swing.JFrame {
                 }
     }
     
-    
+  
     public boolean Validation()
     {
         String dob=txt_dob.getText();
@@ -88,22 +88,18 @@ public class AddEmployee extends javax.swing.JFrame {
             return false;
         }
     } */
-    
-    public AddEmployee() {
+    public Add_Employee() {
         initComponents();
     }
     
-    /*
+   
    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB_New_";
    String user="nethsara123";
    String pass="123";
-   */
+ 
     
-   String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
-    String user="mahen123";
-    String pass="1234";
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -150,7 +146,7 @@ public class AddEmployee extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel2.setText("Employee Name");
 
@@ -207,8 +203,14 @@ public class AddEmployee extends javax.swing.JFrame {
         });
 
         txt_Phone.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_PhoneKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txt_PhoneKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_PhoneKeyTyped(evt);
             }
         });
 
@@ -463,13 +465,17 @@ public class AddEmployee extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btneaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneaddActionPerformed
-        // TODO add your handling code here:
-        
-        
-         try{
+        // validation phone number
        
+        
+         try
+             { 
+              
+         /*Database connection */
            Class.forName(driver);
            Connection con=DriverManager.getConnection(url, user, pass);
+           
+            /*sql query*/
            String sql= "Insert into Employee_Details"
                    +"(Employee_Name,Designation,Position,DOB,Shift,Address,Contact_Number,Password)"
                    +"Values(?,?,?,?,?,?,?,?)";
@@ -486,30 +492,17 @@ public class AddEmployee extends javax.swing.JFrame {
            pst.setString(7,txt_Phone.getText());
            pst.setString(8,txtpassword.getText());
            
-           pst.executeUpdate();
+          pst.executeUpdate();
            JOptionPane.showMessageDialog(this, "Added successfully to the database");
          }
+        
+         
          catch(Exception e)
          {
              JOptionPane.showMessageDialog(this, e.getMessage());
          }
-        
-        
-        
-        
-
-
-
-
-        
-        
-        
-        
-        
-        
          
-        
-        
+    
     }//GEN-LAST:event_btneaddActionPerformed
 
     private void txt_FnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_FnameActionPerformed
@@ -702,6 +695,16 @@ public class AddEmployee extends javax.swing.JFrame {
         
     }//GEN-LAST:event_txt_ShiftKeyReleased
 
+    private void txt_PhoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_PhoneKeyTyped
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_txt_PhoneKeyTyped
+
+    private void txt_PhoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_PhoneKeyPressed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_txt_PhoneKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -719,20 +722,21 @@ public class AddEmployee extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Add_Employee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Add_Employee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Add_Employee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Add_Employee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddEmployee().setVisible(true);
+                new Add_Employee().setVisible(true);
             }
         });
     }

@@ -37,11 +37,7 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
     }
     
      
-    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
-    String user="mahen123";
-    String pass="1234";
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,13 +51,12 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
         jButton6 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(650, 250));
         setMinimumSize(new java.awt.Dimension(1000, 550));
         getContentPane().setLayout(null);
 
@@ -75,14 +70,19 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(50, 130, 260, 50);
+        jButton1.setBounds(60, 60, 260, 50);
 
         jButton2.setBackground(new java.awt.Color(102, 51, 255));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton2.setText("Employee");
         jButton2.setMargin(new java.awt.Insets(2, 18, 18, 14));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2);
-        jButton2.setBounds(50, 220, 260, 53);
+        jButton2.setBounds(60, 150, 260, 53);
 
         jButton3.setBackground(new java.awt.Color(102, 51, 255));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -94,11 +94,11 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(620, 130, 260, 53);
+        jButton3.setBounds(610, 60, 260, 53);
 
         jButton4.setBackground(new java.awt.Color(102, 51, 255));
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButton4.setText("Vendor");
+        jButton4.setText("Hire Item");
         jButton4.setMargin(new java.awt.Insets(2, 18, 18, 14));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,25 +106,11 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(620, 210, 260, 53);
-
-        jButton5.setBackground(new java.awt.Color(102, 51, 255));
-        jButton5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButton5.setText("Hire Item");
-        jButton5.setMargin(new java.awt.Insets(2, 18, 18, 14));
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton5);
-        jButton5.setBounds(620, 310, 260, 53);
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(60, 390, 830, 220);
+        jButton4.setBounds(330, 240, 260, 53);
 
         jButton6.setBackground(new java.awt.Color(102, 51, 255));
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButton6.setText("Report");
+        jButton6.setText("Vendor");
         jButton6.setMargin(new java.awt.Insets(2, 18, 18, 14));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,21 +118,22 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton6);
-        jButton6.setBounds(60, 320, 260, 53);
+        jButton6.setBounds(610, 150, 260, 53);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
         jLabel2.setText("STRICLY : ADMIN ACCESS ONLY");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(50, 630, 280, 17);
+        jLabel2.setBounds(350, 340, 280, 17);
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(4, 0, 1230, 540);
+        jLabel1.setBounds(4, 70, 1230, 470);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        Item_Main_Window IMW=new Item_Main_Window();
+        IMW.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -154,43 +141,21 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
         CGmain.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        Print_Hire_Invoice PHI = new Print_Hire_Invoice();
-        PHI.setVisible(true);
-    }//GEN-LAST:event_jButton5ActionPerformed
-
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        
-        Vendor_Admin_Main_Window Vmain= new Vendor_Admin_Main_Window();
-        Vmain.setVisible(true);
+       
+      Hire_Item_Main_Window HM=new Hire_Item_Main_Window();
+      HM.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-    try{
-        /*database connection*/
-        Class.forName(driver);
-        Connection con= DriverManager.getConnection(url, user, pass);
-        
-        /*calling jasper report to java*/
-        String Reportpath="D:\\ViskamFloraAPP_Clone1\\ViskamFlora_Repo\\src\\ReportNew1.jrxml";
-        JasperReport jr=JasperCompileManager.compileReport(Reportpath);
-        JasperPrint jp=JasperFillManager.fillReport(jr, null,con);
-        JasperViewer.viewReport(jp);
-        
-        
-        con.close();
-        
-    }
-    
-    catch(Exception e)
-    {
-        JOptionPane.showMessageDialog(this, e.getMessage());
-    }
-            
-        
-        
+        Vendor_Admin_Main_Window VM=new Vendor_Admin_Main_Window();
+        VM.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       Employee_Admin_Main_Window EMA=new Employee_Admin_Main_Window();
+       EMA.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,10 +197,8 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
