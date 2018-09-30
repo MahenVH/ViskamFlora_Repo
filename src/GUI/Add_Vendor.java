@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Purnima
  */
-public class AddVendor extends javax.swing.JFrame {
+public class Add_Vendor extends javax.swing.JFrame {
     
      private static Pattern PhoneNumPtrn = Pattern.compile("\\d{10}");
     
@@ -74,7 +74,7 @@ public class AddVendor extends javax.swing.JFrame {
     /**
      * Creates new form AddVendor
      */
-    public AddVendor() {
+    public Add_Vendor() {
         initComponents();
     }
   
@@ -404,20 +404,21 @@ public class AddVendor extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddVendor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Add_Vendor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddVendor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Add_Vendor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddVendor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Add_Vendor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddVendor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Add_Vendor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddVendor().setVisible(true);
+                new Add_Vendor().setVisible(true);
             }
         });
     }

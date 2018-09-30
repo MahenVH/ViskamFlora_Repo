@@ -108,7 +108,7 @@ public class Vendor_Admin_Main_Window extends javax.swing.JFrame {
     private void btnmainaddvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmainaddvActionPerformed
         // TODO add your handling code here:
         
-        AddVendor AV=new AddVendor();
+        Add_Vendor AV=new Add_Vendor();
         AV.setVisible(true);
         
     }//GEN-LAST:event_btnmainaddvActionPerformed

@@ -56,6 +56,7 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(650, 250));
         setMinimumSize(new java.awt.Dimension(1000, 550));
         getContentPane().setLayout(null);
 
@@ -75,6 +76,11 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton2.setText("Employee");
         jButton2.setMargin(new java.awt.Insets(2, 18, 18, 14));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2);
         jButton2.setBounds(60, 150, 260, 53);
 
@@ -126,7 +132,8 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        Item_Main_Window IMW=new Item_Main_Window();
+        IMW.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -144,6 +151,11 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
         Vendor_Admin_Main_Window VM=new Vendor_Admin_Main_Window();
         VM.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       Employee_Admin_Main_Window EMA=new Employee_Admin_Main_Window();
+       EMA.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

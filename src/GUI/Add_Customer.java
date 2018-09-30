@@ -186,7 +186,7 @@ public class Add_Customer extends javax.swing.JFrame {
      
             /* Validating email */
         String email=txtEmail.getText();
-        String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+        String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"+"[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
         
         /*Validating First Name */
         String Fname=txtFname.getText();
@@ -202,20 +202,20 @@ public class Add_Customer extends javax.swing.JFrame {
         String Telephone_Pattern= "\\d{3}-\\d{7}";
         
         /*Validating date*/
-        /*
+        
         String Date = txtDate.getText();
-        String Date_Pattern = "^(0[1-9]|1[012])[-/.](0[1-9]|[12][0-9]|3[01])[-/.](19|20)\\d\\d$";
-        */
+        String Date_Pattern = "^(1[0-2]|0[1-9])/(3[01]"+"|[12][0-9]|0[1-9])/[0-9]{4}$";
+        
         
     try
     {   
        
-        if ((email.matches(EMAIL_PATTERN))
-                /*&&(Telephone.matches(Telephone_Pattern))*/
+        if (    (email.matches(EMAIL_PATTERN))
+                &&(Date.matches(Date_Pattern))
                 && (Fname_Pattern >1) 
-                && (Lname_Pattern >1) 
-                &&(Telephone.matches(Telephone_Pattern)))
-            /*&& (Date.matches(Date_Pattern)))*/
+                && (Lname_Pattern >1)
+                &&(Telephone.matches(Telephone_Pattern))
+           )
         { 
         
         /*Database connection */
