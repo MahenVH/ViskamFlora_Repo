@@ -26,12 +26,18 @@ public class Employee_Admin_Main_Window extends javax.swing.JFrame {
     public Employee_Admin_Main_Window() {
         initComponents();
     }
-
+    /*
    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB_New_";
    String user="nethsara123";
    String pass="123";
-    
+   */ 
+    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
+    String user="mahen123";
+    String pass="1234";
+   
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -162,7 +168,7 @@ public class Employee_Admin_Main_Window extends javax.swing.JFrame {
         Connection con= DriverManager.getConnection(url, user, pass);
         
         /*calling jasper report to java*/
-        String Reportpath="C:\\Users\\acer\\Desktop\\ITP\\ViskamFlora_Repo\\src\\Employee_Details_Report.jrxml";
+        String Reportpath="D:\\ViskamFloraAPP_Clone1\\ViskamFlora_Repo\\src\\Employee report\\Employee_Details_Report.jrxml";
         JasperReport jr=JasperCompileManager.compileReport(Reportpath);
         JasperPrint jp=JasperFillManager.fillReport(jr, null,con);
         JasperViewer.viewReport(jp);

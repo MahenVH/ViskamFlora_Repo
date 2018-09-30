@@ -77,17 +77,17 @@ public class Add_Vendor extends javax.swing.JFrame {
     public Add_Vendor() {
         initComponents();
     }
-  
+  /*
     String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
     String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
     String user="purnima";
     String pass="1234";
-    
+    */
    
-     /*String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
     String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
     String user="mahen123";
-    String pass="1234";*/
+    String pass="1234";
     
     
 
