@@ -32,6 +32,7 @@ public class Main_Window_Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(650, 250));
 
         jButton1.setText("Admin Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

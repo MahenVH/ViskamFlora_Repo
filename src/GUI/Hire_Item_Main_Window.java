@@ -44,6 +44,7 @@ public class Hire_Item_Main_Window extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setLocation(new java.awt.Point(650, 250));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton1.setText("Hire Invoice");
@@ -86,7 +87,8 @@ public class Hire_Item_Main_Window extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         try{
+         try
+         {
         /*database connection*/
         Class.forName(driver);
         Connection con= DriverManager.getConnection(url, user, pass);
@@ -100,12 +102,12 @@ public class Hire_Item_Main_Window extends javax.swing.JFrame {
         
         con.close();
         
-    }
+          }
     
-    catch(Exception e)
-    {
-        JOptionPane.showMessageDialog(this, e.getMessage());
-    }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

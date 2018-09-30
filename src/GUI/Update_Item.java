@@ -92,7 +92,7 @@ public class Update_Item extends javax.swing.JFrame {
         txt_iid = new javax.swing.JTextField();
         txtaddedby2 = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel6.setText("Description");
 
