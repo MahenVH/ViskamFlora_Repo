@@ -188,6 +188,7 @@ public class RemoveVendor extends javax.swing.JFrame {
     private void btnviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewActionPerformed
         // TODO add your handling code here:
         try {
+            Class.forName(driver);
             Connection con=DriverManager.getConnection(url, user, pass);
             PreparedStatement pst;
             pst=con.prepareStatement("select * from Vendor_Details");
