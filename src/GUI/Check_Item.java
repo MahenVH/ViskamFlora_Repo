@@ -47,6 +47,8 @@ public class Check_Item extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         View_Details = new javax.swing.JTable();
         btn_view = new javax.swing.JButton();
+        txt_search = new javax.swing.JTextField();
+        btnSearch1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -75,27 +77,43 @@ public class Check_Item extends javax.swing.JFrame {
             }
         });
 
+        btnSearch1.setText("Search");
+        btnSearch1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearch1ActionPerformed(evt);
+            }
+        });
+        btnSearch1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                btnSearch1KeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(453, 453, 453)
+                .addGap(36, 36, 36)
+                .addComponent(txt_search, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSearch1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_view)
-                .addContainerGap(466, Short.MAX_VALUE))
+                .addGap(90, 90, 90))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 977, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addGap(48, 48, 48)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn_view)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearch1)
+                    .addComponent(btn_view))
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -128,6 +146,20 @@ public class Check_Item extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }//GEN-LAST:event_btn_viewActionPerformed
+
+    private void btnSearch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearch1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnSearch1ActionPerformed
+
+    private void btnSearch1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnSearch1KeyReleased
+        // TODO add your handling code here:
+        DefaultTableModel table = (DefaultTableModel)View_Details.getModel();
+        String search = txt_search.getText().toLowerCase();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(table);
+        View_Details.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(search));
+    }//GEN-LAST:event_btnSearch1KeyReleased
 
     /**
      * @param args the command line arguments
@@ -166,7 +198,9 @@ public class Check_Item extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable View_Details;
+    private javax.swing.JButton btnSearch1;
     private javax.swing.JButton btn_view;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField txt_search;
     // End of variables declaration//GEN-END:variables
 }

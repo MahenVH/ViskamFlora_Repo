@@ -468,7 +468,7 @@ public class Add_Employee extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btneaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneaddActionPerformed
-        // validation phone number
+        // validation add button
        
         
          try
@@ -517,7 +517,7 @@ public class Add_Employee extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_FnameKeyPressed
 
     private void btnecancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnecancelActionPerformed
-        // TODO add your handling code here:
+        // reset button
         txt_Address.setText(" ");
         txt_Designation.setText(" ");
         txt_Fname.setText(" ");
@@ -555,7 +555,7 @@ public class Add_Employee extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_PhoneKeyReleased
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // view button
         
         
    try {
