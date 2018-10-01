@@ -29,12 +29,18 @@ public class Update_Employee extends javax.swing.JFrame {
     }
     
     
-     
+     /*
     String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
     String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB_New_";
     String user="nethsara123";
     String pass="123";
+    */
     
+    
+    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
+    String user="mahen123";
+    String pass="1234";
     
  
     
