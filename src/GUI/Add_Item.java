@@ -24,23 +24,20 @@ public class Add_Item extends javax.swing.JFrame {
      */
     public Add_Item() {
         initComponents();
-        
-     
+
     }
     /*
    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB_New_";
    String user="ramod123";
    String pass="123";
-    */
+     */
 
+    String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    String url = "jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
+    String user = "mahen123";
+    String pass = "1234";
 
-    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
-    String user="mahen123";
-    String pass="1234";
-    
-   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -179,6 +176,7 @@ public class Add_Item extends javax.swing.JFrame {
                                             .addComponent(txtprice)
                                             .addComponent(txttype)
                                             .addComponent(txtname)
+                                            .addComponent(txtid)
                                             .addComponent(txtaddedby, javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(txtmadeby)
                                             .addComponent(jComboBox1, 0, 315, Short.MAX_VALUE))))
@@ -281,61 +279,54 @@ public class Add_Item extends javax.swing.JFrame {
     }//GEN-LAST:event_txttypeActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-   String Date = txtaddedby1.getText();
-   String Date_Pattern = "^(1[0-2]|0[1-9])/(3[01]"+"|[12][0-9]|0[1-9])/[0-9]{4}$";
-        try{
-          if(Date.matches(Date_Pattern))
-                  {
-       
-           Class.forName(driver);
-           Connection con=DriverManager.getConnection(url, user, pass);
-           String sql="insert into Item_Details"
-                   +"(Item_Name,Item_Type,Made_By,Item_Price,Description,Category,Added_By,Added_Date)"
-                   +"values(?,?,?,?,?,?,?,?)";
-           PreparedStatement pst=con.prepareStatement(sql);
-           pst.setString(1,txtname.getText());
-           pst.setString(2, txttype.getText());
-           pst.setString(3,txtprice.getText());
-           pst.setString(4,txtmadeby.getText());
-           pst.setString(5,txtdesc.getText());
-           String category;
-            category=jComboBox1.getSelectedItem().toString();
-           pst.setString(6, category);
-           pst.setString(7, txtaddedby.getText());
-           pst.setString(8, txtaddedby1.getText());
-           
-           pst.executeUpdate();
-           
-           JOptionPane.showMessageDialog(this, "Added successfully to the database");
-                  }
-          else
-          {
-          JOptionPane.showMessageDialog(this,"Incorrect details");
-          }
-      }
-      
-      catch(Exception e)
-     {
-         JOptionPane.showMessageDialog(this, e.getMessage());
-       
-      }
-                      
-       
-        
+        String Date = txtaddedby1.getText();
+        String Date_Pattern = "^(1[0-2]|0[1-9])/(3[01]" + "|[12][0-9]|0[1-9])/[0-9]{4}$";
+        try {
+            if (Date.matches(Date_Pattern)) {
+
+                Class.forName(driver);
+                Connection con = DriverManager.getConnection(url, user, pass);
+                String sql = "insert into Item_Details"
+                        + "(Item_Name,Item_Type,Made_By,Item_Price,Description,Category,Added_By,Added_Date)"
+                        + "values(?,?,?,?,?,?,?,?)";
+                PreparedStatement pst = con.prepareStatement(sql);
+                pst.setString(1, txtname.getText());
+                pst.setString(2, txttype.getText());
+                pst.setString(3, txtprice.getText());
+                pst.setString(4, txtmadeby.getText());
+                pst.setString(5, txtdesc.getText());
+                String category;
+                category = jComboBox1.getSelectedItem().toString();
+                pst.setString(6, category);
+                pst.setString(7, txtaddedby.getText());
+                pst.setString(8, txtaddedby1.getText());
+
+                pst.executeUpdate();
+
+                JOptionPane.showMessageDialog(this, "Added successfully to the database");
+            } else {
+                JOptionPane.showMessageDialog(this, "Incorrect details");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+
+        }
+
+
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btn_ViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ViewActionPerformed
         // TODO add your handling code here:
         try {
-            Connection con=DriverManager.getConnection(url, user, pass);
+            Connection con = DriverManager.getConnection(url, user, pass);
             PreparedStatement pst;
-            pst=con.prepareStatement("select * from Item_Details");
-            ResultSet rs=pst.executeQuery();
-            DefaultTableModel tm=(DefaultTableModel)View_Details.getModel();
+            pst = con.prepareStatement("select * from Item_Details");
+            ResultSet rs = pst.executeQuery();
+            DefaultTableModel tm = (DefaultTableModel) View_Details.getModel();
             tm.setRowCount(0);
-            
-            while (rs.next()) {                
-                Object o[]={rs.getInt("Item_ID"),
+
+            while (rs.next()) {
+                Object o[] = {rs.getInt("Item_ID"),
                     rs.getString("Item_Name"),
                     rs.getString("Item_Type"),
                     rs.getInt("Item_Price"),
@@ -346,7 +337,7 @@ public class Add_Item extends javax.swing.JFrame {
                     rs.getDate("Added_Date")};
                 tm.addRow(o);
             }
-         
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
@@ -361,8 +352,8 @@ public class Add_Item extends javax.swing.JFrame {
         txtdesc.setText("");
         txtaddedby.setText("");
         txtaddedby1.setText("");
-        
-        
+
+
     }//GEN-LAST:event_btnCancelActionPerformed
 
     /**
