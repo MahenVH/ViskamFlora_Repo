@@ -122,7 +122,7 @@ public class Admin_Login extends javax.swing.JFrame {
        {
        /*sql query*/
            
-       String sql="Select * from Login where Employee_ID=? and Password=? ";
+       String sql="Select * from Login_Admin where Employee_ID=? and Password=? ";
        
        /*Database connection */
        Class.forName(driver);

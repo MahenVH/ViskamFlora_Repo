@@ -60,7 +60,6 @@ public class Add_Item extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txtname = new javax.swing.JTextField();
-        txtid = new javax.swing.JTextField();
         txttype = new javax.swing.JTextField();
         txtprice = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -100,12 +99,6 @@ public class Add_Item extends javax.swing.JFrame {
         txtname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnameActionPerformed(evt);
-            }
-        });
-
-        txtid.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtidActionPerformed(evt);
             }
         });
 
@@ -186,7 +179,6 @@ public class Add_Item extends javax.swing.JFrame {
                                             .addComponent(txtprice)
                                             .addComponent(txttype)
                                             .addComponent(txtname)
-                                            .addComponent(txtid)
                                             .addComponent(txtaddedby, javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(txtmadeby)
                                             .addComponent(jComboBox1, 0, 315, Short.MAX_VALUE))))
@@ -220,9 +212,7 @@ public class Add_Item extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(88, 88, 88)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(84, 84, 84))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addContainerGap()
@@ -290,12 +280,12 @@ public class Add_Item extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txttypeActionPerformed
 
-    private void txtidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtidActionPerformed
-
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-      try{
+   String Date = txtaddedby1.getText();
+   String Date_Pattern = "^(1[0-2]|0[1-9])/(3[01]"+"|[12][0-9]|0[1-9])/[0-9]{4}$";
+        try{
+          if(Date.matches(Date_Pattern))
+                  {
        
            Class.forName(driver);
            Connection con=DriverManager.getConnection(url, user, pass);
@@ -317,6 +307,11 @@ public class Add_Item extends javax.swing.JFrame {
            pst.executeUpdate();
            
            JOptionPane.showMessageDialog(this, "Added successfully to the database");
+                  }
+          else
+          {
+          JOptionPane.showMessageDialog(this,"Incorrect details");
+          }
       }
       
       catch(Exception e)
@@ -434,7 +429,6 @@ public class Add_Item extends javax.swing.JFrame {
     private javax.swing.JTextField txtaddedby;
     private javax.swing.JTextField txtaddedby1;
     private javax.swing.JTextArea txtdesc;
-    private javax.swing.JTextField txtid;
     private javax.swing.JTextField txtmadeby;
     private javax.swing.JTextField txtname;
     private javax.swing.JTextField txtprice;
