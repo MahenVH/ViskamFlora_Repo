@@ -47,20 +47,22 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Viskam Flora");
         setLocation(new java.awt.Point(650, 250));
         setMinimumSize(new java.awt.Dimension(1000, 550));
         getContentPane().setLayout(null);
 
-        jButton1.setBackground(new java.awt.Color(102, 51, 255));
+        jButton1.setBackground(new java.awt.Color(153, 153, 153));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton1.setText("Item");
         jButton1.setMargin(new java.awt.Insets(2, 18, 18, 14));
@@ -70,9 +72,9 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(60, 60, 260, 50);
+        jButton1.setBounds(60, 80, 260, 60);
 
-        jButton2.setBackground(new java.awt.Color(102, 51, 255));
+        jButton2.setBackground(new java.awt.Color(153, 153, 153));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton2.setText("Employee");
         jButton2.setMargin(new java.awt.Insets(2, 18, 18, 14));
@@ -82,9 +84,9 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(60, 150, 260, 53);
+        jButton2.setBounds(60, 220, 260, 60);
 
-        jButton3.setBackground(new java.awt.Color(102, 51, 255));
+        jButton3.setBackground(new java.awt.Color(153, 153, 153));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton3.setText("Customer");
         jButton3.setMargin(new java.awt.Insets(2, 18, 18, 14));
@@ -94,9 +96,9 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(610, 60, 260, 53);
+        jButton3.setBounds(580, 90, 260, 60);
 
-        jButton4.setBackground(new java.awt.Color(102, 51, 255));
+        jButton4.setBackground(new java.awt.Color(153, 153, 153));
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton4.setText("Hire Item");
         jButton4.setMargin(new java.awt.Insets(2, 18, 18, 14));
@@ -106,9 +108,9 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(330, 240, 260, 53);
+        jButton4.setBounds(320, 340, 260, 70);
 
-        jButton6.setBackground(new java.awt.Color(102, 51, 255));
+        jButton6.setBackground(new java.awt.Color(153, 153, 153));
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton6.setText("Vendor");
         jButton6.setMargin(new java.awt.Insets(2, 18, 18, 14));
@@ -118,15 +120,18 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton6);
-        jButton6.setBounds(610, 150, 260, 53);
+        jButton6.setBounds(580, 220, 260, 60);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
         jLabel2.setText("STRICLY : ADMIN ACCESS ONLY");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(350, 340, 280, 17);
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(4, 70, 1230, 470);
+        jLabel2.setBounds(30, 480, 280, 17);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/whiteflower.jpeg"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(0, 0, 950, 540);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -200,5 +205,6 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
