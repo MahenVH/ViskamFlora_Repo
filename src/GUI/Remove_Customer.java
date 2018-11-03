@@ -95,7 +95,7 @@ public class Remove_Customer extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(customertable);
 
-        btnvremove.setBackground(new java.awt.Color(0, 0, 0));
+        btnvremove.setBackground(new java.awt.Color(51, 0, 0));
         btnvremove.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnvremove.setForeground(new java.awt.Color(255, 255, 255));
         btnvremove.setText("Remove");
