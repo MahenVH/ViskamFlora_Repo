@@ -131,7 +131,7 @@ public class Admin_Login_Main_Window extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/whiteflower.jpeg"))); // NOI18N
         jLabel3.setText("jLabel3");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(0, 0, 950, 540);
+        jLabel3.setBounds(0, 0, 970, 540);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
