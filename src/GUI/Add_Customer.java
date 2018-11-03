@@ -64,6 +64,7 @@ public class Add_Customer extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Add Customer");
+        setFocusTraversalPolicy(null);
         setLocation(new java.awt.Point(650, 250));
 
         jLabel1.setText("Email");
