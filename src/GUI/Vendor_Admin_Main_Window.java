@@ -49,83 +49,69 @@ public class Vendor_Admin_Main_Window extends javax.swing.JFrame {
         btnmainupdatev = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         btnvreport = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Vendor");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnmainaddv.setBackground(new java.awt.Color(153, 153, 153));
+        btnmainaddv.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnmainaddv.setText("Add");
         btnmainaddv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnmainaddvActionPerformed(evt);
             }
         });
+        getContentPane().add(btnmainaddv, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 202, 48));
 
+        btnmainremovev.setBackground(new java.awt.Color(153, 153, 153));
+        btnmainremovev.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnmainremovev.setText("Remove");
         btnmainremovev.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnmainremovevActionPerformed(evt);
             }
         });
+        getContentPane().add(btnmainremovev, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 202, 45));
 
+        btnmaincheckv.setBackground(new java.awt.Color(153, 153, 153));
+        btnmaincheckv.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnmaincheckv.setText("Check");
         btnmaincheckv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnmaincheckvActionPerformed(evt);
             }
         });
+        getContentPane().add(btnmaincheckv, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 202, 44));
 
+        btnmainupdatev.setBackground(new java.awt.Color(153, 153, 153));
+        btnmainupdatev.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnmainupdatev.setText("Update");
         btnmainupdatev.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnmainupdatevActionPerformed(evt);
             }
         });
+        getContentPane().add(btnmainupdatev, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 202, 47));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
-        jLabel2.setText("Vendor");
+        jLabel2.setText("Vendor UI");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 120));
 
+        btnvreport.setBackground(new java.awt.Color(153, 153, 153));
+        btnvreport.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnvreport.setText("Report");
         btnvreport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnvreportActionPerformed(evt);
             }
         });
+        getContentPane().add(btnvreport, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 380, 202, 50));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(753, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnvreport, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnmainupdatev, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btnmaincheckv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnmainremovev, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
-                        .addComponent(btnmainaddv, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(61, 61, 61))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(159, 159, 159)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnmainaddv, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(btnmainremovev, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(btnmaincheckv, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(btnmainupdatev, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(btnvreport, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(94, Short.MAX_VALUE))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/blur bubble.jpeg"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, 880, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -221,5 +207,6 @@ public class Vendor_Admin_Main_Window extends javax.swing.JFrame {
     private javax.swing.JButton btnmainupdatev;
     private javax.swing.JButton btnvreport;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

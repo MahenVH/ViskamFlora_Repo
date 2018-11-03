@@ -47,87 +47,69 @@ public class Item_Main_Window extends javax.swing.JFrame {
         btn_add = new javax.swing.JButton();
         btn_check = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Item");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         jLabel2.setText("Item UI");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 219, 77));
 
-        btn_Remove.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btn_Remove.setBackground(new java.awt.Color(153, 153, 153));
+        btn_Remove.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btn_Remove.setText("Remove");
         btn_Remove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_RemoveActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_Remove, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 200, 52));
 
-        btn_update.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btn_update.setBackground(new java.awt.Color(153, 153, 153));
+        btn_update.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btn_update.setText("Update");
         btn_update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_updateActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 200, 52));
 
-        btn_add.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btn_add.setBackground(new java.awt.Color(153, 153, 153));
+        btn_add.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btn_add.setText("Add");
         btn_add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_addActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 200, 52));
 
-        btn_check.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btn_check.setBackground(new java.awt.Color(153, 153, 153));
+        btn_check.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btn_check.setText("Check");
         btn_check.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_checkActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_check, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, 200, 52));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton1.setBackground(new java.awt.Color(153, 153, 153));
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setText("Report");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 530, 60));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(256, 256, 256)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(544, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_update, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
-                    .addComponent(btn_Remove, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
-                    .addComponent(btn_add, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_check, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(30, 30, 30))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(95, 95, 95)
-                .addComponent(btn_add, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn_Remove, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(btn_check, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn_update, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/blur bubble.jpeg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -220,6 +202,7 @@ public class Item_Main_Window extends javax.swing.JFrame {
     private javax.swing.JButton btn_check;
     private javax.swing.JButton btn_update;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

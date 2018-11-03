@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import java.awt.Component;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -24,29 +25,20 @@ public class Add_Item extends javax.swing.JFrame {
      */
     public Add_Item() {
         initComponents();
-        
-     
-    }
 
+    }
+    /*
    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB_New_";
    String user="ramod123";
    String pass="123";
+     */
 
-  
-    
+    String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    String url = "jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
+    String user = "mahen123";
+    String pass = "1234";
 
-   
- 
-   
-    /*
-
-    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
-    String user="mahen123";
-    String pass="1234";
-    
-   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,7 +48,6 @@ public class Add_Item extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -66,7 +57,6 @@ public class Add_Item extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txtname = new javax.swing.JTextField();
-        txtid = new javax.swing.JTextField();
         txttype = new javax.swing.JTextField();
         txtprice = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -81,10 +71,11 @@ public class Add_Item extends javax.swing.JFrame {
         View_Details = new javax.swing.JTable();
         btn_View = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jLabel1.setText("Item ID");
+        setTitle("Add Item");
 
         jLabel2.setText("Name");
 
@@ -108,12 +99,6 @@ public class Add_Item extends javax.swing.JFrame {
             }
         });
 
-        txtid.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtidActionPerformed(evt);
-            }
-        });
-
         txttype.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txttypeActionPerformed(evt);
@@ -124,6 +109,9 @@ public class Add_Item extends javax.swing.JFrame {
         txtdesc.setRows(5);
         jScrollPane1.setViewportView(txtdesc);
 
+        btnAdd.setBackground(new java.awt.Color(0, 0, 0));
+        btnAdd.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,6 +119,9 @@ public class Add_Item extends javax.swing.JFrame {
             }
         });
 
+        btnCancel.setBackground(new java.awt.Color(0, 0, 0));
+        btnCancel.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnCancel.setForeground(new java.awt.Color(255, 255, 255));
         btnCancel.setText("Reset");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,6 +141,9 @@ public class Add_Item extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(View_Details);
 
+        btn_View.setBackground(new java.awt.Color(0, 0, 0));
+        btn_View.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btn_View.setForeground(new java.awt.Color(255, 255, 255));
         btn_View.setText("View");
         btn_View.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,13 +153,18 @@ public class Add_Item extends javax.swing.JFrame {
 
         jLabel13.setText("Ex : dd/mm/yyyy");
 
+        jLabel14.setText("Manufacturing Manager / Vendor");
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel1.setText("Add Item");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -173,53 +172,58 @@ public class Add_Item extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)
                             .addComponent(jLabel8))
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtprice)
+                                        .addComponent(txttype)
+                                        .addComponent(txtname)
+                                        .addComponent(txtaddedby, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(txtmadeby)
+                                        .addComponent(jComboBox1, 0, 315, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(117, 117, 117)
+                                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btn_View))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
-                            .addComponent(txtprice)
-                            .addComponent(txttype)
-                            .addComponent(txtname)
-                            .addComponent(txtid)
-                            .addComponent(txtaddedby, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtmadeby)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(41, 41, 41))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13)
-                            .addComponent(txtaddedby1))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                            .addComponent(txtaddedby1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_View, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(474, 474, 474)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(25, 25, 25)
+                .addComponent(jLabel1)
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(88, 88, 88)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(84, 84, 84))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel2)
-                                    .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(36, 36, 36)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel3)
                             .addComponent(txttype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -233,34 +237,39 @@ public class Add_Item extends javax.swing.JFrame {
                             .addComponent(txtmadeby, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(jLabel6))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(39, 39, 39)
+                                .addGap(53, 53, 53)
+                                .addComponent(jLabel6)
+                                .addGap(104, 104, 104))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(jLabel14)
+                                .addGap(14, 14, 14)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(46, 46, 46))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel8)
+                                .addComponent(txtaddedby, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(55, 55, 55))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel8)
-                        .addComponent(txtaddedby, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtaddedby1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel9)
+                            .addComponent(txtaddedby1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel13)
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdd)
-                    .addComponent(btnCancel)
-                    .addComponent(btn_View))
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addGap(36, 36, 36)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btn_View, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
@@ -274,57 +283,55 @@ public class Add_Item extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txttypeActionPerformed
 
-    private void txtidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtidActionPerformed
-
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-      try{
-       
-           Class.forName(driver);
-           Connection con=DriverManager.getConnection(url, user, pass);
-           String sql="insert into Item_Details"
-                   +"(Item_Name,Item_Type,Made_By,Item_Price,Description,Category,Added_By,Added_Date)"
-                   +"values(?,?,?,?,?,?,?,?)";
-           PreparedStatement pst=con.prepareStatement(sql);
-           pst.setString(1,txtname.getText());
-           pst.setString(2, txttype.getText());
-           pst.setString(3,txtprice.getText());
-           pst.setString(4,txtmadeby.getText());
-           pst.setString(5,txtdesc.getText());
-           String category;
-            category=jComboBox1.getSelectedItem().toString();
-           pst.setString(6, category);
-           pst.setString(7, txtaddedby.getText());
-           pst.setString(8, txtaddedby1.getText());
-           
-           pst.executeUpdate();
-           
-           JOptionPane.showMessageDialog(this, "Added successfully to the database");
-      }
-      
-      catch(Exception e)
-     {
-         JOptionPane.showMessageDialog(this, e.getMessage());
-       
-      }
-                      
-       
-        
+        String Date = txtaddedby1.getText();
+        String Date_Pattern = "^(1[0-2]|0[1-9])/(3[01]" + "|[12][0-9]|0[1-9])/[0-9]{4}$";
+        try {
+            if (Date.matches(Date_Pattern)) {
+
+                Class.forName(driver);
+                Connection con = DriverManager.getConnection(url, user, pass);
+                String sql = "insert into Item_Details"
+                        + "(Item_Name,Item_Type,Made_By,Item_Price,Description,Category,Added_By,Added_Date)"
+                        + "values(?,?,?,?,?,?,?,?)";
+                PreparedStatement pst = con.prepareStatement(sql);
+                pst.setString(1, txtname.getText());
+                pst.setString(2, txttype.getText());
+                pst.setString(3, txtprice.getText());
+                pst.setString(4, txtmadeby.getText());
+                pst.setString(5, txtdesc.getText());
+                String category;
+                category = jComboBox1.getSelectedItem().toString();
+                pst.setString(6, category);
+                pst.setString(7, txtaddedby.getText());
+                pst.setString(8, txtaddedby1.getText());
+
+                pst.executeUpdate();
+
+                JOptionPane.showMessageDialog(this, "Added successfully to the database");
+            } else {
+                JOptionPane.showMessageDialog(this, "Incorrect details");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+
+        }
+
+
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btn_ViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ViewActionPerformed
         // TODO add your handling code here:
         try {
-            Connection con=DriverManager.getConnection(url, user, pass);
+            Connection con = DriverManager.getConnection(url, user, pass);
             PreparedStatement pst;
-            pst=con.prepareStatement("select * from Item_Details");
-            ResultSet rs=pst.executeQuery();
-            DefaultTableModel tm=(DefaultTableModel)View_Details.getModel();
+            pst = con.prepareStatement("select * from Item_Details");
+            ResultSet rs = pst.executeQuery();
+            DefaultTableModel tm = (DefaultTableModel) View_Details.getModel();
             tm.setRowCount(0);
-            
-            while (rs.next()) {                
-                Object o[]={rs.getInt("Item_ID"),
+
+            while (rs.next()) {
+                Object o[] = {rs.getInt("Item_ID"),
                     rs.getString("Item_Name"),
                     rs.getString("Item_Type"),
                     rs.getInt("Item_Price"),
@@ -335,7 +342,7 @@ public class Add_Item extends javax.swing.JFrame {
                     rs.getDate("Added_Date")};
                 tm.addRow(o);
             }
-         
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
@@ -350,8 +357,8 @@ public class Add_Item extends javax.swing.JFrame {
         txtdesc.setText("");
         txtaddedby.setText("");
         txtaddedby1.setText("");
-        
-        
+
+
     }//GEN-LAST:event_btnCancelActionPerformed
 
     /**
@@ -404,6 +411,7 @@ public class Add_Item extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -417,7 +425,6 @@ public class Add_Item extends javax.swing.JFrame {
     private javax.swing.JTextField txtaddedby;
     private javax.swing.JTextField txtaddedby1;
     private javax.swing.JTextArea txtdesc;
-    private javax.swing.JTextField txtid;
     private javax.swing.JTextField txtmadeby;
     private javax.swing.JTextField txtname;
     private javax.swing.JTextField txtprice;

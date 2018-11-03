@@ -42,13 +42,7 @@ public class Remove_Customer extends javax.swing.JFrame {
     private void getValue()
     {
         try {
-            CusID.setText(rs.getString("Customer_ID"));
-            Cus_FName.setText(rs.getString("Customer_FName"));
-            Cus_LName.setText(rs.getString("Customer_LName"));
-            Cus_Address.setText(rs.getString("Customer_Address"));
-            Cus_Contact.setText(rs.getString("Customer_Contact_Number"));
-            Cus_Email.setText(rs.getString("Customer_Email"));
-            Cus_Date.setText(rs.getString("Customer_Date_Added"));
+           
          
             
             
@@ -68,49 +62,26 @@ public class Remove_Customer extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
         btnremovevsearch = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         txtvremovesearch = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        CusID = new javax.swing.JTextField();
-        Cus_FName = new javax.swing.JTextField();
-        Cus_LName = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         customertable = new javax.swing.JTable();
-        Cus_Address = new javax.swing.JTextField();
-        Cus_Contact = new javax.swing.JTextField();
-        Cus_Email = new javax.swing.JTextField();
         btnvremove = new javax.swing.JButton();
         btnvcancel = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        Cus_Date = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         btnview = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Remove Customer");
         setLocation(new java.awt.Point(650, 250));
 
-        jLabel3.setText("Customer LName");
-
+        btnremovevsearch.setBackground(new java.awt.Color(0, 0, 0));
+        btnremovevsearch.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnremovevsearch.setForeground(new java.awt.Color(255, 255, 255));
         btnremovevsearch.setText("Search");
         btnremovevsearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnremovevsearchActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("Customer_Address");
-
-        jLabel5.setText("Customer_Contact_Number");
-
-        jLabel6.setText("Email");
-
-        CusID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CusIDActionPerformed(evt);
             }
         });
 
@@ -124,6 +95,9 @@ public class Remove_Customer extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(customertable);
 
+        btnvremove.setBackground(new java.awt.Color(51, 0, 0));
+        btnvremove.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnvremove.setForeground(new java.awt.Color(255, 255, 255));
         btnvremove.setText("Remove");
         btnvremove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,14 +105,14 @@ public class Remove_Customer extends javax.swing.JFrame {
             }
         });
 
+        btnvcancel.setBackground(new java.awt.Color(0, 0, 0));
+        btnvcancel.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnvcancel.setForeground(new java.awt.Color(255, 255, 255));
         btnvcancel.setText("Cancel");
 
-        jLabel7.setText("Date");
-
-        jLabel1.setText("Customer ID");
-
-        jLabel2.setText("Customer FName");
-
+        btnview.setBackground(new java.awt.Color(0, 0, 0));
+        btnview.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnview.setForeground(new java.awt.Color(255, 255, 255));
         btnview.setText("View");
         btnview.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,99 +120,55 @@ public class Remove_Customer extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel8.setText("Remove Customer");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel5)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(90, 90, 90)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtvremovesearch, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnremovevsearch))
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 882, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtvremovesearch, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnremovevsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnview, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnvcancel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnvremove, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Cus_FName, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CusID, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Cus_LName, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Cus_Address, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Cus_Contact, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Cus_Email, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Cus_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(39, 39, 39)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 882, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(21, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(238, 238, 238)
-                .addComponent(btnvremove)
-                .addGap(118, 118, 118)
-                .addComponent(btnvcancel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnview, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(355, 355, 355))
+                        .addGap(306, 306, 306)
+                        .addComponent(jLabel8)))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtvremovesearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnremovevsearch))
-                .addGap(31, 31, 31)
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addGap(16, 16, 16)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(276, 276, 276)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(Cus_Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Cus_Date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CusID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Cus_FName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Cus_LName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Cus_Address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Cus_Contact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btnvremove)
-                                    .addComponent(btnvcancel)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                                .addComponent(btnview)))))
-                .addContainerGap(18, Short.MAX_VALUE))
+                            .addComponent(btnremovevsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtvremovesearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnvcancel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnview, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnvremove, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -261,7 +191,7 @@ public class Remove_Customer extends javax.swing.JFrame {
             if (rs.next()) {
 
                 getValue();
-                Cus_FName.setText(rs.getString("Customer_FName"));
+                txtvremovesearch.setText(rs.getString("Customer_FName"));
             }
 
             String sql1="select * from Customer_Details where Customer_ID=?";
@@ -273,7 +203,7 @@ public class Remove_Customer extends javax.swing.JFrame {
             if (rs.next()) {
                 getValue();
 
-                CusID.setText(rs.getString("Customer_ID"));
+                txtvremovesearch.setText(rs.getString("Customer_ID"));
 
             }
 
@@ -283,10 +213,6 @@ public class Remove_Customer extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnremovevsearchActionPerformed
-
-    private void CusIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CusIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CusIDActionPerformed
 
     private void btnvremoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvremoveActionPerformed
         // TODO add your handling code here:
@@ -376,25 +302,12 @@ public class Remove_Customer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField CusID;
-    private javax.swing.JTextField Cus_Address;
-    private javax.swing.JTextField Cus_Contact;
-    private javax.swing.JTextField Cus_Date;
-    private javax.swing.JTextField Cus_Email;
-    private javax.swing.JTextField Cus_FName;
-    private javax.swing.JTextField Cus_LName;
     private javax.swing.JButton btnremovevsearch;
     private javax.swing.JButton btnvcancel;
     private javax.swing.JButton btnview;
     private javax.swing.JButton btnvremove;
     private javax.swing.JTable customertable;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtvremovesearch;
     // End of variables declaration//GEN-END:variables

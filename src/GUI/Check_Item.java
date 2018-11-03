@@ -27,11 +27,17 @@ public class Check_Item extends javax.swing.JFrame {
     public Check_Item() {
         initComponents();
     }
-    
+    /*
        String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
        String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB_New_";
        String user="ramod123";
        String pass="123";
+     */  
+       String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
+    String user="mahen123";
+    String pass="1234";
+    
     
      ResultSet rs;
 
@@ -47,8 +53,12 @@ public class Check_Item extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         View_Details = new javax.swing.JTable();
         btn_view = new javax.swing.JButton();
+        txt_search = new javax.swing.JTextField();
+        btnSearch1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Check Item");
 
         View_Details.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -68,6 +78,9 @@ public class Check_Item extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(View_Details);
 
+        btn_view.setBackground(new java.awt.Color(0, 0, 0));
+        btn_view.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btn_view.setForeground(new java.awt.Color(255, 255, 255));
         btn_view.setText("View");
         btn_view.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,27 +88,62 @@ public class Check_Item extends javax.swing.JFrame {
             }
         });
 
+        btnSearch1.setBackground(new java.awt.Color(0, 0, 0));
+        btnSearch1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnSearch1.setForeground(new java.awt.Color(255, 255, 255));
+        btnSearch1.setText("Search");
+        btnSearch1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearch1ActionPerformed(evt);
+            }
+        });
+        btnSearch1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                btnSearch1KeyReleased(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel1.setText("Check Item");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(txt_search, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_view, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(373, 373, 373)
+                .addComponent(jLabel1)
+                .addContainerGap(445, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(453, 453, 453)
-                .addComponent(btn_view)
-                .addContainerGap(466, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(19, 19, 19)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btn_view)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txt_search)
+                        .addGap(27, 27, 27))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnSearch1, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                            .addComponent(btn_view, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(25, 25, 25))))
         );
 
         pack();
@@ -128,6 +176,20 @@ public class Check_Item extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }//GEN-LAST:event_btn_viewActionPerformed
+
+    private void btnSearch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearch1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnSearch1ActionPerformed
+
+    private void btnSearch1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnSearch1KeyReleased
+        // TODO add your handling code here:
+        DefaultTableModel table = (DefaultTableModel)View_Details.getModel();
+        String search = txt_search.getText().toLowerCase();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(table);
+        View_Details.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(search));
+    }//GEN-LAST:event_btnSearch1KeyReleased
 
     /**
      * @param args the command line arguments
@@ -166,7 +228,10 @@ public class Check_Item extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable View_Details;
+    private javax.swing.JButton btnSearch1;
     private javax.swing.JButton btn_view;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField txt_search;
     // End of variables declaration//GEN-END:variables
 }

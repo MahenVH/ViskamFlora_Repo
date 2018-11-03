@@ -33,14 +33,16 @@ public class Customer_Admin_Main_Window extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Customer");
         setLocation(new java.awt.Point(650, 250));
         setMinimumSize(new java.awt.Dimension(1000, 550));
         getContentPane().setLayout(null);
 
-        jButton1.setBackground(new java.awt.Color(102, 51, 255));
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton1.setBackground(new java.awt.Color(153, 153, 153));
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setText("Add");
         jButton1.setMargin(new java.awt.Insets(2, 18, 18, 14));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -49,10 +51,10 @@ public class Customer_Admin_Main_Window extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(600, 160, 150, 50);
+        jButton1.setBounds(150, 170, 230, 60);
 
-        jButton2.setBackground(new java.awt.Color(102, 51, 255));
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton2.setBackground(new java.awt.Color(153, 153, 153));
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton2.setText("Remove");
         jButton2.setMargin(new java.awt.Insets(2, 18, 18, 14));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -61,10 +63,10 @@ public class Customer_Admin_Main_Window extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(600, 230, 150, 50);
+        jButton2.setBounds(460, 290, 230, 60);
 
-        jButton3.setBackground(new java.awt.Color(102, 51, 255));
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton3.setBackground(new java.awt.Color(153, 153, 153));
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton3.setText("Check");
         jButton3.setMargin(new java.awt.Insets(2, 18, 18, 14));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -73,10 +75,10 @@ public class Customer_Admin_Main_Window extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(600, 300, 150, 50);
+        jButton3.setBounds(460, 170, 230, 60);
 
-        jButton4.setBackground(new java.awt.Color(102, 51, 255));
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton4.setBackground(new java.awt.Color(153, 153, 153));
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton4.setText("Update");
         jButton4.setMargin(new java.awt.Insets(2, 18, 18, 14));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -85,16 +87,19 @@ public class Customer_Admin_Main_Window extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(600, 370, 150, 50);
+        jButton4.setBounds(150, 290, 230, 60);
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         jLabel2.setText("Customer UI");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(220, 10, 300, 120);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Project_Images\\light .jpeg")); // NOI18N
+        jLabel2.setBounds(40, 10, 300, 120);
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 1230, 540);
+        jLabel1.setBounds(0, 0, 830, 540);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/blur bubble.jpeg"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(0, 0, 880, 540);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -165,5 +170,6 @@ public class Customer_Admin_Main_Window extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
