@@ -92,6 +92,11 @@ public class Remove_Item extends javax.swing.JFrame {
         btnCancel.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnCancel.setForeground(new java.awt.Color(255, 255, 255));
         btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
 
         btn_Remove.setBackground(new java.awt.Color(51, 0, 0));
         btn_Remove.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -145,6 +150,11 @@ public class Remove_Item extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("View All");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -206,7 +216,7 @@ public class Remove_Item extends javax.swing.JFrame {
             Class.forName(driver);
            Connection con=DriverManager.getConnection(url, user, pass);
            PreparedStatement pst;
-         /*  
+          
            String sql1="select * from Item_Details where Item_Name=?";
             
             pst=con.prepareStatement(sql1);
@@ -217,10 +227,10 @@ public class Remove_Item extends javax.swing.JFrame {
             if (rs.next()) {
 
                 getVlaue();
-                txtname.setText(rs.getString("Item_Name"));
+               itemsearch.setText(rs.getString("Item_Name"));
             }
         
-           */ 
+           
             String sql2="select * from Item_Details where Item_ID=?";
            
           
@@ -310,6 +320,39 @@ public class Remove_Item extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_itemsearchKeyReleased
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         try {
+            Connection con=DriverManager.getConnection(url, user, pass);
+            PreparedStatement pst;
+            pst=con.prepareStatement("select * from Item_Details");
+            rs=pst.executeQuery();
+            DefaultTableModel tm=(DefaultTableModel)viewTable.getModel();
+            tm.setRowCount(0);
+            
+            while (rs.next()) {                
+                Object o[]={rs.getInt("Item_ID"),
+                    rs.getString("Item_Name"),
+                    rs.getString("Item_Type"),
+                    rs.getInt("Item_Price"),
+                    rs.getString("Made_by"),
+                    rs.getString("Description"),
+                    rs.getString("Category"),
+                    rs.getInt("Added_By"),
+                    rs.getDate("Added_Date")};
+                tm.addRow(o);
+            }
+         
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnCancelActionPerformed
 
     /**
      * @param args the command line arguments
