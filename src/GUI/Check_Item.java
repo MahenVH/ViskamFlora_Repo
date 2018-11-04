@@ -40,6 +40,26 @@ public class Check_Item extends javax.swing.JFrame {
     
     
      ResultSet rs;
+        private void getVlaue()
+    {
+        try {
+           /* txtitem_ID.setText(rs.getString("Item_ID"));
+            txtname.setText(rs.getString("Item_Name"));
+            txttype.setText(rs.getString("Item_Type"));
+            txtprice.setText(rs.getString("Item_Price"));
+            txtMadeby.setText(rs.getString("Made_by"));
+            txtdesc.setText(rs.getString("Description"));
+            txtCategory.setText(rs.getString("Category"));
+            txtaddedby.setText(rs.getString("Added_By"));
+            txtaddedby1.setText(rs.getString("Added_Date"));
+            */
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e);
+        }
+        
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -51,7 +71,7 @@ public class Check_Item extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane2 = new javax.swing.JScrollPane();
-        View_Details = new javax.swing.JTable();
+        View_Detail = new javax.swing.JTable();
         btn_view = new javax.swing.JButton();
         txt_search = new javax.swing.JTextField();
         btnSearch1 = new javax.swing.JButton();
@@ -60,7 +80,7 @@ public class Check_Item extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Check Item");
 
-        View_Details.setModel(new javax.swing.table.DefaultTableModel(
+        View_Detail.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
@@ -76,7 +96,7 @@ public class Check_Item extends javax.swing.JFrame {
                 "Item ID", "Name", "Type", "Price", "Made by", "Description", "Category", "Added by", "Added date"
             }
         ));
-        jScrollPane2.setViewportView(View_Details);
+        jScrollPane2.setViewportView(View_Detail);
 
         btn_view.setBackground(new java.awt.Color(0, 0, 0));
         btn_view.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -156,7 +176,7 @@ public class Check_Item extends javax.swing.JFrame {
             PreparedStatement pst;
             pst=con.prepareStatement("select * from Item_Details");
             rs=pst.executeQuery();
-            DefaultTableModel tm=(DefaultTableModel)View_Details.getModel();
+            DefaultTableModel tm=(DefaultTableModel)View_Detail.getModel();
             tm.setRowCount(0);
             
             while (rs.next()) {                
@@ -179,15 +199,56 @@ public class Check_Item extends javax.swing.JFrame {
 
     private void btnSearch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearch1ActionPerformed
         // TODO add your handling code here:
+           try {
+            Class.forName(driver);
+           Connection con=DriverManager.getConnection(url, user, pass);
+           PreparedStatement pst;
+         
+           String sql1="select * from Item_Details where Item_Name=?";
+            
+            pst=con.prepareStatement(sql1);
+            pst.setString(1, txt_search.getText());
+            
+             rs = pst.executeQuery();
+            
+            if (rs.next()) {
+
+                getVlaue();
+                txt_search.setText(rs.getString("Item_Name"));
+            }
+        
+           
+            String sql2="select * from Item_Details where Item_ID=?";
+           
+          
+            pst=con.prepareStatement(sql2);
+            pst.setString(1, txt_search.getText());
+           
+             rs = pst.executeQuery();
+            
+            if (rs.next()) {
+                getVlaue();
+
+                txt_search.setText(rs.getString("Item_ID"));
+                
+            }
+            
+            
+        } catch (ClassNotFoundException | SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex);
+        }
+       
+        
+      
         
     }//GEN-LAST:event_btnSearch1ActionPerformed
 
     private void btnSearch1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnSearch1KeyReleased
         // TODO add your handling code here:
-        DefaultTableModel table = (DefaultTableModel)View_Details.getModel();
+        DefaultTableModel table = (DefaultTableModel)View_Detail.getModel();
         String search = txt_search.getText().toLowerCase();
         TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(table);
-        View_Details.setRowSorter(tr);
+        View_Detail.setRowSorter(tr);
         tr.setRowFilter(RowFilter.regexFilter(search));
     }//GEN-LAST:event_btnSearch1KeyReleased
 
@@ -227,7 +288,7 @@ public class Check_Item extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable View_Details;
+    private javax.swing.JTable View_Detail;
     private javax.swing.JButton btnSearch1;
     private javax.swing.JButton btn_view;
     private javax.swing.JLabel jLabel1;
