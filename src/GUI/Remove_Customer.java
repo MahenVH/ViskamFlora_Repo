@@ -209,7 +209,8 @@ public class Remove_Customer extends javax.swing.JFrame {
 
         }
         catch (Exception e) {
-            JOptionPane.showMessageDialog(this, e);
+            
+            JOptionPane.showMessageDialog(this, "Incorrect details");
         }
 
     }//GEN-LAST:event_btnremovevsearchActionPerformed

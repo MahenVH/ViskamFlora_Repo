@@ -5,6 +5,15 @@
  */
 package GUI;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
+
 /**
  *
  * @author Mahen
@@ -18,6 +27,12 @@ public class Customer_Admin_Main_Window extends javax.swing.JFrame {
         initComponents();
     }
 
+    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
+    String user="mahen123";
+    String pass="1234";
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,6 +47,7 @@ public class Customer_Admin_Main_Window extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -93,6 +109,16 @@ public class Customer_Admin_Main_Window extends javax.swing.JFrame {
         jLabel2.setText("Customer UI");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(40, 10, 300, 120);
+
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton5.setText("Report");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5);
+        jButton5.setBounds(200, 410, 430, 50);
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 830, 540);
 
@@ -124,6 +150,31 @@ public class Customer_Admin_Main_Window extends javax.swing.JFrame {
         Check_Customer C_C=new Check_Customer();
         C_C.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+         try
+         {
+        //database connection
+        Class.forName(driver);
+        Connection con= DriverManager.getConnection(url, user, pass);
+        
+        /*calling jasper report to java*/
+        String Reportpath="D:\\ViskamFloraAPP_Clone1\\ViskamFlora_Repo\\src\\GUI\\CustomerReport.jrxml";
+        JasperReport jr=JasperCompileManager.compileReport(Reportpath);
+        JasperPrint jp=JasperFillManager.fillReport(jr, null,con);
+        JasperViewer.viewReport(jp);
+        
+        
+        con.close();
+        
+          }
+    
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }  
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,6 +219,7 @@ public class Customer_Admin_Main_Window extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
