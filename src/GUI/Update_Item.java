@@ -113,6 +113,11 @@ public class Update_Item extends javax.swing.JFrame {
         btnCancel.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnCancel.setForeground(new java.awt.Color(255, 255, 255));
         btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
 
         btn_update.setBackground(new java.awt.Color(0, 0, 0));
         btn_update.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -466,6 +471,10 @@ public class Update_Item extends javax.swing.JFrame {
         
        
     }//GEN-LAST:event_btn_updateActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelActionPerformed
 
     /**
      * @param args the command line arguments
