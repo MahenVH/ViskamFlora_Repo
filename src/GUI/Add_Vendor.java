@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Add_Vendor extends javax.swing.JFrame {
     
-     private static Pattern PhoneNumPtrn = Pattern.compile("\\d{10}");
+private static Pattern PhoneNumPtrn = Pattern.compile("\\d{10}");
     
     
     public static boolean validatePhoneNumber(String phonenum){
@@ -54,11 +54,90 @@ public class Add_Vendor extends javax.swing.JFrame {
         
     }
     
+     private static Pattern quantityPtrn = Pattern.compile(
+    "^[1-9]\\d*$");
+    
+    public static boolean validateQuantity(String quantity){
+        
+         
+        Matcher mtchquan = quantityPtrn.matcher(quantity);
+        if(mtchquan.matches()){
+            return true;
+        }
+       
+        return false;
+        
+    }
+    
+    
+     private static Pattern lettersOnlyPtrn = Pattern.compile(
+    "[a-zA-Z]");
+    
+    
+    public static boolean validateVendorName(String vname)
+    {
+         Matcher mtchname = lettersOnlyPtrn.matcher(vname);
+        if(vname.length()!=0 && mtchname.matches() )
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    public static boolean validateCompanyName(String vcomname)
+    {
+          Matcher mtchcom = lettersOnlyPtrn.matcher(vcomname);
+        if(vcomname.length()!=0 && mtchcom.matches() )
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    public static boolean validateLocation(String vlocation)
+    {
+       
+          Matcher mtchloc = lettersOnlyPtrn.matcher(vlocation);
+        if(vlocation.length()!=0 && mtchloc.matches() )
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    public static boolean validateItemType(String vitype)
+    {
+       
+          Matcher mtchtype = lettersOnlyPtrn.matcher(vitype);
+        if(vitype.length()!=0 && mtchtype.matches() )
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
     public boolean Validation()
     {
+        String quantity=txtvquantity.getText();
+        String vitype=txtiaddtype.getText();
+        String vlocation=txtaddlocation.getText();
+        String vcomname=txtaddcompany.getText();
+        String vname=txtvaddname.getText();
         String email=txtvaddemail.getText();
         String phonenum=txtaddvtp.getText();
-        if(validateEmailAddress(email) && validatePhoneNumber(phonenum))
+        if(validateEmailAddress(email) && validatePhoneNumber(phonenum)&& validateVendorName(vname)&& validateCompanyName(vcomname)&& validateLocation(vlocation)&& validateItemType(vitype)&& validateQuantity(quantity))
         {
             return true;
         }

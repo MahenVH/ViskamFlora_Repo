@@ -222,8 +222,8 @@ public class Remove_Customer extends javax.swing.JFrame {
                 Class.forName(driver);
             Connection con=DriverManager.getConnection(url, user, pass);
             PreparedStatement pst;
-            
-            String value=txtvremovesearch.getText().toString();
+            int row = customertable.getSelectedRow();
+            String value=(customertable.getModel().getValueAt(row, 0).toString());
             String query4="DELETE FROM Customer_Details where Customer_ID="+value;
             pst=con.prepareStatement(query4);
             pst.executeUpdate();

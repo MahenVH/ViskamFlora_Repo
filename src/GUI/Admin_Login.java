@@ -47,7 +47,7 @@ public class Admin_Login extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Employee Log in");
+        setTitle("Admin Log in");
         setForeground(new java.awt.Color(0, 102, 153));
         setLocation(new java.awt.Point(650, 250));
         setMaximumSize(new java.awt.Dimension(2147483647, 500));

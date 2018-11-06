@@ -484,8 +484,24 @@ public class Add_Employee extends javax.swing.JFrame {
         // validation add button
        
         
-         try
-             { 
+        /*Validating First Name */
+        String Fname=txt_Fname.getText();
+        int Fname_Pattern = Fname.length();
+        
+
+        
+        /*Validating Telephone Number*/
+        /*{3} and {7} are lengths */
+        String Telephone = txt_Phone.getText();
+        String Telephone_Pattern= "\\d{3}-\\d{7}";
+
+        
+    try
+    {   
+       
+        if ((Fname_Pattern >1)&&(Telephone.matches(Telephone_Pattern)))
+        { 
+       
               
          /*Database connection */
            Class.forName(driver);
@@ -500,9 +516,8 @@ public class Add_Employee extends javax.swing.JFrame {
            pst.setString(2,txt_Designation .getText());
            String Position;
             Position=cmbposition.getSelectedItem().toString();
-            pst.setString(3,Position);
+           pst.setString(3,Position);
            pst.setString(4,txt_dob.getText());
-           
            pst.setString(5,txt_Shift.getText());
            pst.setString(6,txt_Address.getText());
            pst.setString(7,txt_Phone.getText());
@@ -511,8 +526,12 @@ public class Add_Employee extends javax.swing.JFrame {
           pst.executeUpdate();
            JOptionPane.showMessageDialog(this, "Added successfully to the database");
          }
+        else
+        {
+        JOptionPane.showMessageDialog(this, "Incorrect");
+        }
         
-         
+    } 
          catch(Exception e)
          {
              JOptionPane.showMessageDialog(this, e.getMessage());

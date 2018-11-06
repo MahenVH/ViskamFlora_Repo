@@ -143,8 +143,8 @@ public class Employee_Login extends javax.swing.JFrame {
             if(rs.next())
             {
             JOptionPane.showMessageDialog(this, "Username and Password correct");
-            Customer_Admin_Main_Window CGmain = new Customer_Admin_Main_Window();
-            CGmain.setVisible(true);
+            Employee_Login_Main_Window EMmain = new Employee_Login_Main_Window();
+            EMmain.setVisible(true);
             }
 
             else

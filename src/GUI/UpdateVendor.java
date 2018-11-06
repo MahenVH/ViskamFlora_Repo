@@ -40,13 +40,17 @@ public class UpdateVendor extends javax.swing.JFrame {
    
     }
     
-    
+    /*
     String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
     String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
     String user="purnima";
     String pass="1234";
+    */
     
-    
+    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
+    String user="mahen123";
+    String pass="1234";
  
     
     
@@ -56,7 +60,7 @@ public class UpdateVendor extends javax.swing.JFrame {
     ResultSet rs;
     
     
-    private static Pattern PhoneNumPtrn = Pattern.compile("\\d{10}");
+   private static Pattern PhoneNumPtrn = Pattern.compile("\\d{10}");
     
     
     public static boolean validatePhoneNumber(String phonenum){
@@ -89,11 +93,89 @@ public class UpdateVendor extends javax.swing.JFrame {
         
     }
     
+    private static Pattern quantityPtrn = Pattern.compile(
+    "^[1-9]\\d*$");
+    
+    public static boolean validateQuantity(String quantity){
+        
+         
+        Matcher mtchquan = quantityPtrn.matcher(quantity);
+        if(mtchquan.matches()){
+            return true;
+        }
+       
+        return false;
+        
+    }
+    
+     private static Pattern lettersOnlyPtrn = Pattern.compile(
+    "[a-zA-Z]");
+    
+    
+    public static boolean validateVendorName(String vname)
+    {
+         Matcher mtchname = lettersOnlyPtrn.matcher(vname);
+        if(vname.length()!=0 && mtchname.matches() )
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    public static boolean validateCompanyName(String vcomname)
+    {
+          Matcher mtchcom = lettersOnlyPtrn.matcher(vcomname);
+        if(vcomname.length()!=0 && mtchcom.matches() )
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    public static boolean validateLocation(String vlocation)
+    {
+       
+          Matcher mtchloc = lettersOnlyPtrn.matcher(vlocation);
+        if(vlocation.length()!=0 && mtchloc.matches() )
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    public static boolean validateItemType(String vitype)
+    {
+       
+          Matcher mtchtype = lettersOnlyPtrn.matcher(vitype);
+        if(vitype.length()!=0 && mtchtype.matches() )
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
     public boolean Validation()
     {
+        String quantity=txtvquantity.getText();
+        String vname=txtvname.getText();
+        String vcomname=txtcompany.getText();
+        String vlocation=txtlocation.getText();
+        String vitype=txtitype.getText();
         String email=txtvemail.getText();
         String phonenum=txtvtp.getText();
-        if(validateEmailAddress(email) && validatePhoneNumber(phonenum))
+        if(validateEmailAddress(email) && validatePhoneNumber(phonenum)&&validateVendorName(vname)&& validateCompanyName(vcomname)&& validateLocation(vlocation)&& validateItemType(vitype)&& validateQuantity(quantity))
         {
             return true;
         }
@@ -103,9 +185,6 @@ public class UpdateVendor extends javax.swing.JFrame {
             return false;
         }
     }
-    
-    
-    
     private void getValue()
     {
         try {

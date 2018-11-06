@@ -27,7 +27,7 @@ public class Hire_Item_Main_Window extends javax.swing.JFrame {
         initComponents();
     }
     String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    String url="jdbc:sqlse rver://localhost:1433;databaseName=Viskam_Flora_DB";
+    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
     String user="mahen123";
     String pass="1234";
     

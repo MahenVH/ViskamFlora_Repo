@@ -29,9 +29,16 @@ public class Vendor_Admin_Main_Window extends javax.swing.JFrame {
     public Vendor_Admin_Main_Window() {
         initComponents();
     }
+    /*
     String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
     String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
     String user="purnima";
+    String pass="1234";
+    */
+    
+    String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    String url="jdbc:sqlserver://localhost:1433;databaseName=Viskam_Flora_DB";
+    String user="mahen123";
     String pass="1234";
 
     /**
@@ -152,7 +159,7 @@ public class Vendor_Admin_Main_Window extends javax.swing.JFrame {
         {
             Class.forName(driver);
             Connection con=DriverManager.getConnection(url, user, pass);
-            String report="D:\\Viskam_Flora_Java_Project\\ViskamFlora_Repo\\src\\GUI\\VendorReport1.jrxml";
+            String report="D:\\ViskamFloraAPP_Clone1\\ViskamFlora_Repo\\src\\GUI\\VendorReport1.jrxml";
             JasperReport jr= JasperCompileManager.compileReport(report);
             JasperPrint jp=JasperFillManager.fillReport(jr, null,con);
             JasperViewer.viewReport(jp);
